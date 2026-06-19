@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Careers | Axis HR Solutions</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Careers | Axis HR Solutions</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,42 +12,47 @@
 <h1>Current Vacancies</h1>
 
 <div class="card">
-<h3>HR Officer</h3>
-<p>Islamabad</p>
+  <h3>HR Officer</h3>
+  <p>Islamabad</p>
+  <button onclick="openForm('HR Officer')">Apply Now</button>
 </div>
 
 <div class="card">
-<h3>Admin Manager</h3>
-<p>Lahore</p>
+  <h3>Admin Manager</h3>
+  <p>Lahore</p>
+  <button onclick="openForm('Admin Manager')">Apply Now</button>
 </div>
 
-<form id="careerForm" action="#" method="POST" enctype="multipart/form-data">
+<hr>
+
+<h2>Apply for Job</h2>
+
+<form action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data">
+
+  <input type="hidden" id="position" name="position">
 
   <label>Full Name</label>
   <input type="text" name="name" required>
 
-  <label>Email Address</label>
+  <label>Email</label>
   <input type="email" name="email" required>
 
-  <label>Phone Number</label>
+  <label>Phone</label>
   <input type="tel" name="phone">
 
-  <label>Position Applying For</label>
-  <input type="text" name="position">
-
-  <!-- Resume Upload -->
-  <label>Upload Resume (PDF/DOC)</label>
+  <label>Upload CV</label>
   <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
-
-  <!-- Cover Letter Upload (Optional) -->
-  <label>Upload Cover Letter (Optional)</label>
-  <input type="file" name="cover_letter" accept=".pdf,.doc,.docx">
-
-  <!-- OR Cover Letter Text Alternative -->
-  <label>Or Write Cover Letter</label>
-  <textarea name="cover_letter_text" rows="6"
-    placeholder="Write your cover letter here..."></textarea>
 
   <button type="submit">Submit Application</button>
 
 </form>
+
+<script>
+function openForm(jobTitle) {
+  document.getElementById("position").value = jobTitle;
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
