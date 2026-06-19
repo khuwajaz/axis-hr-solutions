@@ -1,88 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Careers | Axis HR Solutions</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers | Axis HR Solutions</title>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4;
+}
+
+h1 {
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+button {
+  padding: 8px 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+form {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+</style>
 </head>
 
 <body>
 
-<label for="locationFilter">Filter by Location:</label>
-
-<select id="locationFilter" onchange="filterJobs()">
-  <option value="all">All Locations</option>
-  <option value="islamabad">Islamabad</option>
-  <option value="lahore">Lahore</option>
-  <option value="karachi">Karachi</option>
-</select>
-  
 <h1>Current Vacancies</h1>
 
 <div class="card">
   <h3>HR Officer</h3>
   <p>Islamabad</p>
-  <button onclick="openForm('HR Officer')">Apply Now</button>
+  <button onclick="setJob('HR Officer')">Apply</button>
 </div>
 
-<div class="card" data-location="islamabad">
-  <h3>HR Officer</h3>
-  <p>Islamabad</p>
-  <button onclick="openForm('HR Officer')">Apply Now</button>
-</div>
-  
-<div class="card" data-location="karachi">
-  <h3>HR Officer</h3>
-  <p>Karachi</p>
-  <button onclick="openForm('HR Officer')">Apply Now</button>
-</div>
-  
-<div class="card" data-location="lahore">
+<div class="card">
   <h3>Admin Manager</h3>
   <p>Lahore</p>
-  <button onclick="openForm('Admin Manager')">Apply Now</button>
+  <button onclick="setJob('Admin Manager')">Apply</button>
 </div>
 
 <hr>
 
-<h2>Apply for Job</h2>
+<h2>Job Application Form</h2>
 
-<form action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data">
+<form id="careerForm">
 
-  <input type="hidden" id="position" name="position">
+  <input type="text" name="name" placeholder="Full Name" required>
 
-  <label>Full Name</label>
-  <input type="text" name="name" required>
+  <input type="email" name="email" placeholder="Email" required>
 
-  <label>Email</label>
-  <input type="email" name="email" required>
+  <input type="text" name="phone" placeholder="Phone" required>
 
-  <label>Phone</label>
-  <input type="tel" name="phone">
+  <input type="text" name="position" id="position" placeholder="Position" required readonly>
 
-  <label>Upload CV</label>
-  <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
+  <textarea name="cover_letter" placeholder="Cover Letter (Optional)"></textarea>
 
   <button type="submit">Submit Application</button>
 
 </form>
 
 <script>
-function filterJobs() {
-  let selected = document.getElementById("locationFilter").value;
-  let jobs = document.querySelectorAll(".card");
-
-  jobs.forEach(job => {
-    let location = job.getAttribute("data-location");
-
-    if (selected === "all" || location === selected) {
-      job.style.display = "block";
-    } else {
-      job.style.display = "none";
-    }
-  });
+function setJob(job) {
+  document.getElementById("position").value = job;
+  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
 }
+
+document.getElementById("careerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  fetch("https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec", {
+    method: "POST",
+    body: JSON.stringify({
+      name: this.name.value,
+      email: this.email.value,
+      phone: this.phone.value,
+      position: this.position.value,
+      cover_letter: this.cover_letter.value
+    })
+  })
+  .then(() => {
+    alert("Application submitted successfully!");
+    this.reset();
+  })
+  .catch(() => {
+    alert("Error submitting form!");
+  });
+
+});
 </script>
+
 </body>
 </html>
