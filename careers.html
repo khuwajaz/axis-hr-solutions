@@ -8,9 +8,9 @@
 <style>
 body {
   font-family: Arial;
+  background: #f4f4f4;
   margin: 0;
   padding: 20px;
-  background: #f4f4f4;
 }
 
 h1 {
@@ -29,8 +29,8 @@ button {
   background: #007bff;
   color: white;
   border: none;
-  cursor: pointer;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 form {
@@ -42,8 +42,14 @@ form {
 
 input, textarea {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin: 8px 0;
+  box-sizing: border-box;
+}
+
+#positionText {
+  color: green;
+  font-weight: bold;
 }
 </style>
 </head>
@@ -52,31 +58,40 @@ input, textarea {
 
 <h1>Current Vacancies</h1>
 
+<!-- JOB CARDS -->
 <div class="card">
   <h3>HR Officer</h3>
   <p>Islamabad</p>
-  <button onclick="setJob('HR Officer')">Apply</button>
+  <button type="button" onclick="setJob('HR Officer')">Apply</button>
 </div>
 
 <div class="card">
   <h3>Admin Manager</h3>
   <p>Lahore</p>
-  <button onclick="setJob('Admin Manager')">Apply</button>
+  <button type="button" onclick="setJob('Admin Manager')">Apply</button>
 </div>
 
 <hr>
 
 <h2>Job Application Form</h2>
 
+<p><strong>Selected Position:</strong> <span id="positionText">None</span></p>
+
+<!-- FORM START -->
 <form id="careerForm">
+
+  <!-- FIXED POSITION FIELD (IMPORTANT) -->
+  <input type="hidden" name="position" id="position" required>
 
   <input type="text" name="name" placeholder="Full Name" required>
 
-  <input type="email" name="email" placeholder="Email" required>
+  <input type="email" name="email" placeholder="Email Address" required>
 
-  <input type="text" name="phone" placeholder="Phone" required>
+  <input type="text" name="phone" placeholder="Phone Number" required>
 
-  <input type="text" name="position" id="position" placeholder="Position" required readonly>
+  <!-- CV UPLOAD (FORMPSREE HANDLES THIS) -->
+  <label>Upload CV (PDF/DOC)</label>
+  <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
 
   <textarea name="cover_letter" placeholder="Cover Letter (Optional)"></textarea>
 
@@ -85,32 +100,48 @@ input, textarea {
 </form>
 
 <script>
+/* -------------------------
+   JOB SELECTION FIXED
+--------------------------*/
 function setJob(job) {
   document.getElementById("position").value = job;
-  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+  document.getElementById("positionText").innerText = job;
+
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: "smooth"
+  });
 }
 
+/* -------------------------
+   GOOGLE SHEET LINK (YOUR API)
+--------------------------*/
+const SHEET_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
+
+/* -------------------------
+   FORM SUBMISSION
+--------------------------*/
 document.getElementById("careerForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
-  fetch("https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec", {
+  fetch(SHEET_URL, {
     method: "POST",
     body: JSON.stringify({
       name: this.name.value,
       email: this.email.value,
       phone: this.phone.value,
-      position: this.position.value,
-      cover_letter: this.cover_letter.value
+      position: document.getElementById("position").value,
+      cover_letter: this.cover_letter.value || ""
     })
   })
   .then(() => {
     alert("Application submitted successfully!");
     this.reset();
+    document.getElementById("positionText").innerText = "None";
   })
   .catch(() => {
-    alert("Error submitting form!");
+    alert("Error submitting application. Please try again.");
   });
-
 });
 </script>
 
