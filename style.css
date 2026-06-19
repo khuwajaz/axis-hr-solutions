@@ -13,11 +13,10 @@ body {
 
 /* HERO */
 .hero {
+  display: block;
   padding: 70px 20px;
   background: linear-gradient(135deg, #4f46e5, #06b6d4);
   color: white;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
 }
 
 .hero h1 {
