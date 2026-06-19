@@ -110,3 +110,14 @@ button:hover {
     align-items: center;
   }
 }
+a {
+  display: inline-block;
+  margin-top: 20px;
+  color: #4f46e5;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  }
