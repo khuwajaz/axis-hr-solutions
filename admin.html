@@ -1,50 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin Dashboard | Axis HR</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | Axis HR Solutions</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th {
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  text-align: left;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+  background: #f1f1f1;
+}
+
+a {
+  color: green;
+  font-weight: bold;
+  text-decoration: none;
+}
+</style>
 </head>
 
 <body>
 
 <h1>HR Applications Dashboard</h1>
 
-<table border="1" width="100%" id="dataTable">
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Position</th>
-    <th>Resume Link</th>
-  </tr>
+<table id="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Position</th>
+      <th>Cover Letter</th>
+      <th>Resume</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
 </table>
 
 <script>
-const SHEET_URL = "YOUR_GOOGLE_SHEET_CSV_LINK";
+
+const SHEET_URL = "https://docs.google.com/spreadsheets/d/11SyClWJ_G5uIxdx5v4U90fLUK7TTYC0pGqfYJGFtz3A/gviz/tq?tqx=out:csv";
 
 fetch(SHEET_URL)
-  .then(res => res.text())
-  .then(data => {
-    let rows = data.split("\n").slice(1);
+.then(res => res.text())
+.then(data => {
 
-    rows.forEach(row => {
-      let cols = row.split(",");
+  const rows = data.split("\n").slice(1); // skip header
+  const tableBody = document.querySelector("#table tbody");
 
-      let table = document.getElementById("dataTable");
+  rows.forEach(row => {
+    const cols = row.split(",");
 
-      let tr = document.createElement("tr");
+    if (cols.length < 2) return;
 
-      tr.innerHTML = `
-        <td>${cols[0]}</td>
-        <td>${cols[1]}</td>
-        <td>${cols[2]}</td>
-        <td>${cols[3]}</td>
-        <td><a href="${cols[4]}" target="_blank">View CV</a></td>
-      `;
+    let tr = document.createElement("tr");
 
-      table.appendChild(tr);
-    });
+    tr.innerHTML = `
+      <td>${cols[0] || ""}</td>
+      <td>${cols[1] || ""}</td>
+      <td>${cols[2] || ""}</td>
+      <td>${cols[3] || ""}</td>
+      <td>${cols[4] || ""}</td>
+      <td>${cols[5] ? `<a href="${cols[5]}" target="_blank">View CV</a>` : "No CV"}</td>
+      <td>${cols[6] || ""}</td>
+    `;
+
+    tableBody.appendChild(tr);
   });
+
+});
+
 </script>
 
 </body>
