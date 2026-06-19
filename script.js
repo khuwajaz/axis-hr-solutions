@@ -6,12 +6,42 @@ const firebaseConfig = {
     messagingSenderId: "1076360786018",
     appId: "1:1076360786018:web:d39ec1e18527d8842e613b"
   };
+
 firebase.initializeApp(firebaseConfig);
+
+const auth = firebase.auth();
 const db = firebase.firestore();
 
+/* ---------------- ADMIN LOGIN ---------------- */
+function login() {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(() => {
+      alert("Login successful");
+      loadAdminJobs();
+    })
+    .catch(err => alert(err.message));
+}
+
+/* ---------------- ADD JOB ---------------- */
+function addJob() {
+  const title = document.getElementById("title").value;
+  const location = document.getElementById("location").value;
+
+  db.collection("jobs").add({
+    title,
+    location
+  });
+
+  alert("Job added!");
+}
+
+/* ---------------- LOAD PUBLIC JOBS ---------------- */
 const jobsContainer = document.getElementById("jobs");
 
-function loadJobs() {
+if (jobsContainer) {
   db.collection("jobs").onSnapshot(snapshot => {
     jobsContainer.innerHTML = "";
 
@@ -22,16 +52,31 @@ function loadJobs() {
         <div class="card">
           <h3>${job.title}</h3>
           <p>${job.location}</p>
-          <button onclick="applyJob('${job.title}')">Apply Now</button>
+          <button onclick="applyJob('${job.title}')">Apply</button>
         </div>
       `;
     });
   });
 }
 
+/* ---------------- APPLY BUTTON ---------------- */
 function applyJob(title) {
-  const phone = "923001234567";
-  window.open(`https://wa.me/${phone}?text=I want to apply for ${title}`);
+  window.open(`https://wa.me/923001234567?text=I want to apply for ${title}`);
 }
 
-loadJobs();
+/* ---------------- ADMIN JOB LIST ---------------- */
+function loadAdminJobs() {
+  const adminJobs = document.getElementById("adminJobs");
+
+  db.collection("jobs").onSnapshot(snapshot => {
+    adminJobs.innerHTML = "";
+
+    snapshot.forEach(doc => {
+      adminJobs.innerHTML += `
+        <div class="card">
+          <p>${doc.data().title}</p>
+        </div>
+      `;
+    });
+  });
+}
