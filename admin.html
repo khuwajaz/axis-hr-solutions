@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Dashboard - Axis HR</title>
+  <title>Admin Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="admin-box">
+<div class="box">
   <h2>Admin Login</h2>
 
   <input id="email" placeholder="Email">
   <input id="password" type="password" placeholder="Password">
-
   <button onclick="login()">Login</button>
 
   <hr>
 
   <h3>Add Job</h3>
-
   <input id="title" placeholder="Job Title">
   <input id="location" placeholder="Location">
-
   <button onclick="addJob()">Add Job</button>
 
-  <h3>Jobs List</h3>
+  <h3>Jobs</h3>
   <div id="adminJobs"></div>
 </div>
 
+<!-- Firebase -->
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
 
 <script src="script.js"></script>
+
 </body>
 </html>
