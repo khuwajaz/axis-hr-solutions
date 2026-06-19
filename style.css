@@ -1,8 +1,8 @@
 body {
   font-family: Arial;
   margin: 0;
-  background: #0f172a;
-  color: white;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  color: #1f2937;
   text-align: center;
 }
 
