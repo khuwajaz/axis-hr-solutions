@@ -9,6 +9,14 @@
 
 <body>
 
+<label for="locationFilter">Filter by Location:</label>
+
+<select id="locationFilter" onchange="filterJobs()">
+  <option value="all">All Locations</option>
+  <option value="islamabad">Islamabad</option>
+  <option value="lahore">Lahore</option>
+</select>
+  
 <h1>Current Vacancies</h1>
 
 <div class="card">
@@ -17,7 +25,13 @@
   <button onclick="openForm('HR Officer')">Apply Now</button>
 </div>
 
-<div class="card">
+<div class="card" data-location="islamabad">
+  <h3>HR Officer</h3>
+  <p>Islamabad</p>
+  <button onclick="openForm('HR Officer')">Apply Now</button>
+</div>
+
+<div class="card" data-location="lahore">
   <h3>Admin Manager</h3>
   <p>Lahore</p>
   <button onclick="openForm('Admin Manager')">Apply Now</button>
