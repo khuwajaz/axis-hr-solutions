@@ -17,13 +17,28 @@ body {
 }
 
 .card {
- background: #0f172a;
+  background: white;
   margin: 10px auto;
   padding: 15px;
-  width: 250px;
-  border-radius: 10px;
+  width: 260px;
+  border-radius: 12px;
+  color: #111827;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: 0.3s;
 }
 
+.card:hover {
+  transform: translateY(-5px);
+}
+button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+}
 .whatsapp {
   position: fixed;
   bottom: 20px;
