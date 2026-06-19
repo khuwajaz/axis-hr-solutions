@@ -44,7 +44,6 @@ input, textarea {
   width: 100%;
   padding: 10px;
   margin: 8px 0;
-  box-sizing: border-box;
 }
 
 #positionText {
@@ -58,7 +57,6 @@ input, textarea {
 
 <h1>Current Vacancies</h1>
 
-<!-- JOB CARDS -->
 <div class="card">
   <h3>HR Officer</h3>
   <p>Islamabad</p>
@@ -77,10 +75,10 @@ input, textarea {
 
 <p><strong>Selected Position:</strong> <span id="positionText">None</span></p>
 
-<!-- FORM START -->
-<form id="careerForm">
+<!-- IMPORTANT: FORMPSREE ENDPOINT -->
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
 
-  <!-- FIXED POSITION FIELD (IMPORTANT) -->
+  <!-- POSITION FIXED -->
   <input type="hidden" name="position" id="position" required>
 
   <input type="text" name="name" placeholder="Full Name" required>
@@ -89,7 +87,7 @@ input, textarea {
 
   <input type="text" name="phone" placeholder="Phone Number" required>
 
-  <!-- CV UPLOAD (FORMPSREE HANDLES THIS) -->
+  <!-- ✅ ATTACHMENT FIELD (NOW WORKING) -->
   <label>Upload CV (PDF/DOC)</label>
   <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
 
@@ -100,9 +98,6 @@ input, textarea {
 </form>
 
 <script>
-/* -------------------------
-   JOB SELECTION FIXED
---------------------------*/
 function setJob(job) {
   document.getElementById("position").value = job;
   document.getElementById("positionText").innerText = job;
@@ -112,37 +107,6 @@ function setJob(job) {
     behavior: "smooth"
   });
 }
-
-/* -------------------------
-   GOOGLE SHEET LINK (YOUR API)
---------------------------*/
-const SHEET_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
-
-/* -------------------------
-   FORM SUBMISSION
---------------------------*/
-document.getElementById("careerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-
-  fetch(SHEET_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      name: this.name.value,
-      email: this.email.value,
-      phone: this.phone.value,
-      position: document.getElementById("position").value,
-      cover_letter: this.cover_letter.value || ""
-    })
-  })
-  .then(() => {
-    alert("Application submitted successfully!");
-    this.reset();
-    document.getElementById("positionText").innerText = "None";
-  })
-  .catch(() => {
-    alert("Error submitting application. Please try again.");
-  });
-});
 </script>
 
 </body>
