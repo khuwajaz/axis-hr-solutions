@@ -1,14 +1,35 @@
-.admin-box {
-  width: 300px;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 10px;
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #0f172a;
+  color: white;
   text-align: center;
 }
 
-input {
-  width: 100%;
-  margin: 5px 0;
-  padding: 8px;
+.hero {
+  padding: 60px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.section {
+  padding: 40px;
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  margin: 10px auto;
+  padding: 15px;
+  width: 250px;
+  border-radius: 10px;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: green;
+  padding: 10px 15px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
 }
