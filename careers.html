@@ -1,59 +1,30 @@
-<!DOCTYPE html>
+<form id="careerForm" action="#" method="POST" enctype="multipart/form-data">
 
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Careers | Axis HR Solutions</title>
-<link rel="stylesheet" href="style.css">
-</head>
+  <label>Full Name</label>
+  <input type="text" name="name" required>
 
-<body>
+  <label>Email Address</label>
+  <input type="email" name="email" required>
 
-<h1>Current Vacancies</h1>
+  <label>Phone Number</label>
+  <input type="tel" name="phone">
 
-<div class="card">
-<h3>HR Officer</h3>
-<p>Islamabad</p>
-</div>
+  <label>Position Applying For</label>
+  <input type="text" name="position">
 
-<div class="card">
-<h3>Admin Manager</h3>
-<p>Lahore</p>
-</div>
+  <!-- Resume Upload -->
+  <label>Upload Resume (PDF/DOC)</label>
+  <input type="file" name="resume" accept=".pdf,.doc,.docx" required>
 
-<h2>Submit Your Resume</h2>
+  <!-- Cover Letter Upload (Optional) -->
+  <label>Upload Cover Letter (Optional)</label>
+  <input type="file" name="cover_letter" accept=".pdf,.doc,.docx">
 
-<form action="https://formsubmit.co/khuwajaz@yahoo.com"
-method="POST">
+  <!-- OR Cover Letter Text Alternative -->
+  <label>Or Write Cover Letter</label>
+  <textarea name="cover_letter_text" rows="6"
+    placeholder="Write your cover letter here..."></textarea>
 
-<input type="text"
-name="name"
-placeholder="Full Name"
-required>
-
-<input type="email"
-name="email"
-placeholder="Email Address"
-required>
-
-<input type="text"
-name="phone"
-placeholder="Phone Number"
-required>
-
-<textarea
-name="message"
-placeholder="Tell us about yourself">
-</textarea>
-
-<button type="submit">
-Submit Resume
-</button>
+  <button type="submit">Submit Application</button>
 
 </form>
-
-<a href="index.html">Back Home</a>
-
-</body>
-</html>
