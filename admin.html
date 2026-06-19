@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Axis HR Solutions Admin</title>
-    <link rel="stylesheet" href="style.css">
+  <title>Admin Dashboard | Axis HR</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Admin Portal</h1>
+<h1>HR Applications Dashboard</h1>
 
-    <p>
-        This section is under development.
-    </p>
+<table border="1" width="100%" id="dataTable">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Position</th>
+    <th>Resume Link</th>
+  </tr>
+</table>
 
-    <a href="index.html" class="btn">
-        Return to Website
-    </a>
-</div>
+<script>
+const SHEET_URL = "YOUR_GOOGLE_SHEET_CSV_LINK";
+
+fetch(SHEET_URL)
+  .then(res => res.text())
+  .then(data => {
+    let rows = data.split("\n").slice(1);
+
+    rows.forEach(row => {
+      let cols = row.split(",");
+
+      let table = document.getElementById("dataTable");
+
+      let tr = document.createElement("tr");
+
+      tr.innerHTML = `
+        <td>${cols[0]}</td>
+        <td>${cols[1]}</td>
+        <td>${cols[2]}</td>
+        <td>${cols[3]}</td>
+        <td><a href="${cols[4]}" target="_blank">View CV</a></td>
+      `;
+
+      table.appendChild(tr);
+    });
+  });
+</script>
 
 </body>
 </html>
