@@ -2,76 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Axis HR Solutions | Recruitment & Staffing Agency</title>
-  <meta name="description" content="Axis HR Solutions - Connecting talent with opportunity through professional HR & recruitment services.">
-
+  <title>Axis HR Portal</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- HERO -->
 <header class="hero">
-  <nav>
-    <div class="logo">Axis HR Solutions</div>
-    <a href="#contact" class="btn-small">Contact</a>
-  </nav>
-
-  <div class="hero-content">
-    <h1>Connecting Talent With Opportunity</h1>
-    <p>Premium Recruitment & HR Consultancy Services</p>
-    <a href="#jobs" class="btn">Explore Jobs</a>
-  </div>
+  <h1>Axis HR Portal</h1>
+  <p>Live Job Opportunities</p>
 </header>
 
-<!-- ABOUT -->
-<section class="section glass">
-  <h2>About Us</h2>
-  <p>
-    We are a modern HR & recruitment agency helping organizations find the right talent
-    and professionals find the right career opportunities.
-  </p>
+<section class="section">
+  <h2>Available Jobs</h2>
+  <div id="jobs"></div>
 </section>
 
-<!-- JOBS -->
-<section class="section" id="jobs">
-  <h2>Latest Job Openings</h2>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
 
-  <div class="grid">
-
-    <div class="card">
-      <h3>HR Officer</h3>
-      <p>Location: Islamabad</p>
-      <button>Apply Now</button>
-    </div>
-
-    <div class="card">
-      <h3>Admin Manager</h3>
-      <p>Location: Lahore</p>
-      <button>Apply Now</button>
-    </div>
-
-    <div class="card">
-      <h3>Recruitment Specialist</h3>
-      <p>Location: Remote</p>
-      <button>Apply Now</button>
-    </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section glass" id="contact">
-  <h2>Contact Us</h2>
-  <p>Email: info@axishrsolutions.com</p>
-</section>
-
-<!-- WHATSAPP -->
-<a class="whatsapp" href="https://wa.me/923001234567" target="_blank">
-  💬 Chat
-</a>
-
+<script src="script.js"></script>
 </body>
 </html>
