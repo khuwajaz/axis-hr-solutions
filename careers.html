@@ -62,11 +62,20 @@
 </form>
 
 <script>
-function openForm(jobTitle) {
-  document.getElementById("position").value = jobTitle;
-  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+function filterJobs() {
+  let selected = document.getElementById("locationFilter").value;
+  let jobs = document.querySelectorAll(".card");
+
+  jobs.forEach(job => {
+    let location = job.getAttribute("data-location");
+
+    if (selected === "all" || location === selected) {
+      job.style.display = "block";
+    } else {
+      job.style.display = "none";
+    }
+  });
 }
 </script>
-
 </body>
 </html>
