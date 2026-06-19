@@ -136,7 +136,20 @@ button {
     margin: 20px;
     padding: 30px;
   }
+.admin-box {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  text-align: center;
+}
 
+input {
+  width: 100%;
+  margin: 5px 0;
+  padding: 8px;
+}
   .grid {
     flex-direction: column;
     align-items: center;
