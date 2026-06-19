@@ -16,7 +16,7 @@ body {
 }
 
 .card {
-  background: rgba(255,255,255,0.1);
+ background: #0f172a;
   margin: 10px auto;
   padding: 15px;
   width: 250px;
