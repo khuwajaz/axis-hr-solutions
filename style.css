@@ -1,8 +1,18 @@
 body {
   font-family: Arial;
-  background: #0f172a;
+  margin: 0;
+  background: #D4A437;
   color: white;
   text-align: center;
+}
+
+.hero {
+  padding: 60px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+.section {
+  padding: 40px;
 }
 
 .card {
@@ -13,7 +23,13 @@ body {
   border-radius: 10px;
 }
 
-.box {
-  width: 300px;
-  margin: 50px auto;
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: green;
+  padding: 10px 15px;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
 }
