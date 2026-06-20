@@ -1,50 +1,213 @@
-<section id="why-choose">
-  <div class="container">
+/* =========================
+   RESET & BASE
+========================= */
 
-    <h2>Why Choose Axis HR Solutions</h2>
-    <p class="section-subtitle">
-      Delivering reliable, efficient, and professional HR & administrative services
-    </p>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    <div class="services-grid">
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #F7F9FC;
+  color: #333;
+  line-height: 1.6;
+}
 
-      <div class="service-card">
-        <i class="fas fa-briefcase"></i>
-        <h3>Industry Expertise</h3>
-        <p>Over years of experience in HR management, recruitment, and administrative support across multiple sectors.</p>
-      </div>
+/* =========================
+   CONTAINER
+========================= */
 
-      <div class="service-card">
-        <i class="fas fa-globe"></i>
-        <h3>Multi-Sector Coverage</h3>
-        <p>We serve NGOs, corporate organizations, startups, and development sector projects with equal efficiency.</p>
-      </div>
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
 
-      <div class="service-card">
-        <i class="fas fa-users"></i>
-        <h3>Skilled Talent Network</h3>
-        <p>Access to a wide pool of qualified professionals across administrative, technical, and managerial roles.</p>
-      </div>
+/* =========================
+   NAVIGATION
+========================= */
 
-      <div class="service-card">
-        <i class="fas fa-bolt"></i>
-        <h3>Fast Turnaround</h3>
-        <p>Quick recruitment and HR service delivery without compromising quality and compliance standards.</p>
-      </div>
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-      <div class="service-card">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Compliance Focused</h3>
-        <p>We ensure all HR processes follow proper documentation, labor standards, and organizational policies.</p>
-      </div>
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
 
-      <div class="service-card">
-        <i class="fas fa-handshake"></i>
-        <h3>Trusted Partnership</h3>
-        <p>We work as an extension of your organization, ensuring long-term HR stability and support.</p>
-      </div>
+nav a {
+  text-decoration: none;
+  color: #0F4C81;
+  font-weight: 600;
+}
 
-    </div>
+nav a:hover {
+  color: #00A3E0;
+}
 
-  </div>
-</section>
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0F4C81, #00A3E0);
+  color: white;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #2BB673;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.btn:hover {
+  background: #239a5f;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+  padding: 70px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #0F4C81;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* =========================
+   SERVICES GRID (8 CARDS)
+========================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+
+.service-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+.service-card i {
+  font-size: 30px;
+  color: #0F4C81;
+  margin-bottom: 10px;
+}
+
+.service-card h3 {
+  color: #0F4C81;
+  margin-bottom: 8px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+/* =========================
+   GENERAL CARDS (OLD SYSTEM SUPPORT)
+========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
