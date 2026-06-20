@@ -1,22 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Axis HR Solutions Admin</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Axis HR Admin Dashboard</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f7fb;
+    }
+
+    header {
+      background: #0F4C81;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #0F4C81;
+      margin-top: 30px;
+    }
+
+    .box {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      white-space: pre-wrap;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+
+    button {
+      background: #0F4C81;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background: #0c3a66;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h1>Admin Portal</h1>
+  <header>
+    <h1>Axis HR Admin Dashboard (Safe Mode)</h1>
+  </header>
 
-    <p>
-        This section is under development.
-    </p>
+  <div class="container">
 
-    <a href="index.html" class="btn">
-        Return to Website
-    </a>
-</div>
+    <h2>📡 Raw Data from Google Script</h2>
+
+    <button onclick="loadData()">Load Data</button>
+
+    <div id="output" class="box">Click "Load Data" to fetch results...</div>
+
+  </div>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
+
+    async function loadData() {
+      const output = document.getElementById("output");
+      output.innerText = "Loading...";
+
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.text(); // IMPORTANT: raw text first
+
+        output.innerText = data;
+
+      } catch (err) {
+        output.innerText = "Error: " + err.message;
+      }
+    }
+  </script>
 
 </body>
 </html>
