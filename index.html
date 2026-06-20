@@ -1,61 +1,306 @@
-<section class="services" id="services">
-  <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axis HR Solutions | International HR Consultancy</title>
+    <style>
+        /* Base Reset & Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <h2>Our Services</h2>
-    <p class="section-subtitle">
-      Complete HR & Administrative Solutions for Modern Organizations
-    </p>
+        body {
+            background-color: #fcfcfc;
+            color: #333;
+            line-height: 1.6;
+        }
 
-    <div class="services-grid">
+        /* Variables for Branding Colors */
+        :root {
+            --primary-color: #0d3b66; /* Elegant Corporate Navy Blue */
+            --accent-color: #f4d35e;  /* Contrast Gold Accent */
+            --dark-color: #112233;
+            --light-color: #f4f6f9;
+        }
 
-      <div class="service-card">
-        <i class="fas fa-users"></i>
-        <h3>Human Resource Management</h3>
-        <p>End-to-end HR support including recruitment, onboarding, policies, and employee management.</p>
-      </div>
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
 
-      <div class="service-card">
-        <i class="fas fa-user-plus"></i>
-        <h3>Recruitment & Staffing</h3>
-        <p>Permanent, temporary, and executive hiring across corporate and NGO sectors.</p>
-      </div>
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
 
-      <div class="service-card">
-        <i class="fas fa-money-check-dollar"></i>
-        <h3>Payroll Management</h3>
-        <p>Accurate salary processing, attendance tracking, overtime, and compliance reporting.</p>
-      </div>
+        .logo span {
+            color: var(--accent-color);
+        }
 
-      <div class="service-card">
-        <i class="fas fa-briefcase"></i>
-        <h3>Administrative Support</h3>
-        <p>Office administration, documentation, record keeping, and operational coordination.</p>
-      </div>
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
 
-      <div class="service-card">
-        <i class="fas fa-building"></i>
-        <h3>HR Outsourcing</h3>
-        <p>Complete HR department outsourcing for cost-effective workforce management.</p>
-      </div>
+        nav ul li {
+            margin-left: 20px;
+        }
 
-      <div class="service-card">
-        <i class="fas fa-graduation-cap"></i>
-        <h3>Training & Development</h3>
-        <p>Professional training programs for leadership, communication, and workplace skills.</p>
-      </div>
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-      <div class="service-card">
-        <i class="fas fa-file-lines"></i>
-        <h3>CV & Career Services</h3>
-        <p>CV writing, cover letters, LinkedIn optimization, and interview preparation.</p>
-      </div>
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
 
-      <div class="service-card">
-        <i class="fas fa-chart-line"></i>
-        <h3>Business HR Consultancy</h3>
-        <p>HR strategy, SOPs, policies, workforce planning, and organizational development.</p>
-      </div>
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 59, 102, 0.85), rgba(17, 34, 51, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: #fff;
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-btn {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #e5c143;
+        }
+
+        /* Container & Section Architecture */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 60px auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0 auto;
+        }
+
+        /* Services Grid Layout */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Contact Details Section */
+        .contact-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: var(--light-color);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .office-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .office-info p {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: #ccc;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 14px;
+        }
+
+        /* Responsive Breakpoint Layouts */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 5px 10px;
+            }
+            .hero h2 {
+                font-size: 30px;
+            }
+            .contact-box {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>AXIS <span>HR SOLUTIONS</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#sectors">Sectors</a></li>
+                <li><a href="#services">IT & HR Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Unlocking the Value of Human Capital</h2>
+        <p>With years of experience successfully providing professional HR solutions & corporate contract recruiting across Commercial, Industrial, Semi-Government & Government sectors globally.</p>
+        <a href="#contact" class="cta-btn">Partner With Us</a>
+    </section>
+
+    <div class="container">
+        
+        <section id="about" style="margin-bottom: 80px;">
+            <h2>About Us</h2>
+            <p style="text-align: center; max-width: 900px; margin: 0 auto; font-size: 17px;">
+                Axis HR Solutions focuses on providing unmatched technical expertise across all aspects of Human Resource Management. We work closely in partnership with our clients using a recognized smart process system to systematically achieve business goals with agility and flexibility.
+            </p>
+        </section>
+
+        <section id="sectors" style="margin-bottom: 80px;">
+            <h2>Sectors We Serve</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Oil &amp; Gas</h3>
+                    <p>Providing heavy placement options, specialized technicians, engineering personnel, and rig operations specialists.</p>
+                </div>
+                <div class="card">
+                    <h3>Facilities Management</h3>
+                    <p>Hard &amp; Soft services staffing solutions including HVAC, BMS, Electrical Systems, and asset management teams.</p>
+                </div>
+                <div class="card">
+                    <h3>Construction &amp; Infrastructure</h3>
+                    <p>Civil, MEP, Planning, and Estimation engineering placements coupled with certified on-site labor resources.</p>
+                </div>
+                <div class="card">
+                    <h3>Marine &amp; Ports</h3>
+                    <p>Staffing solutions from Master Captains and Marine Fleet Managers to certified offshore vessel operators.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" style="margin-bottom: 80px;">
+            <h2>Information Technology &amp; Strategy</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Web &amp; App Development</h3>
+                    <p>High-end responsive user experience builds, portfolio designs, and tailored digital business infrastructure.</p>
+                </div>
+                <div class="card">
+                    <h3>SEO &amp; Google Ads</h3>
+                    <p>Targeted visual analytics and visibility generation across search configurations to increase market scale.</p>
+                </div>
+                <div class="card">
+                    <h3>Social Media Marketing</h3>
+                    <p>Strategic brand management, creative graphic direction, and targeted corporate audience profiling campaigns.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-box">
+                <div class="office-info">
+                    <h3>UAE Office (Headquarters)</h3>
+                    <p><strong>Address:</strong> Office No: 948, 9th Floor, Corniche Area, Dar Al Salam Tower, Abu Dhabi, United Arab Emirates</p>
+                    <p><strong>Phone:</strong> +971 509 527 442</p>
+                    <p><strong>Email:</strong> info@axishrsolutions.com</p>
+                </div>
+                <div class="office-info">
+                    <h3>India Office</h3>
+                    <p><strong>Address:</strong> No. 27A, NT Patel Road, Nerkundram, Koyambedu, Chennai - 600 107 (Near MGR University)</p>
+                    <p><strong>Phone:</strong> +91 8807807164</p>
+                    <p><strong>Email:</strong> info@axishrsolutions.com</p>
+                </div>
+            </div>
+        </section>
 
     </div>
-  </div>
-</section>
+
+    <footer>
+        <p>&copy; 2026 Axis HR Solutions. All Rights Reserved. Built for global strategic placements.</p>
+    </footer>
+
+</body>
+</html>
