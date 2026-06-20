@@ -1,108 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard | Axis HR Solutions</title>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Axis HR</title>
 
-<style>
-body {
-  font-family: Arial;
-  background: #f4f4f4;
-  margin: 0;
-  padding: 20px;
-}
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f7fb;
+      margin: 0;
+    }
 
-h1 {
-  text-align: center;
-  margin-bottom: 20px;
-}
+    header {
+      background: #0F4C81;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-}
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
 
-th {
-  background: #007bff;
-  color: white;
-  padding: 12px;
-  text-align: left;
-}
+    h2 {
+      color: #0F4C81;
+    }
 
-td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      margin-top: 20px;
+    }
 
-tr:hover {
-  background: #f1f1f1;
-}
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+      font-size: 14px;
+    }
 
-a {
-  color: green;
-  font-weight: bold;
-  text-decoration: none;
-}
-</style>
+    th {
+      background: #0F4C81;
+      color: white;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>HR Applications Dashboard</h1>
+  <header>
+    <h1>Axis HR Admin Dashboard</h1>
+  </header>
 
-<table id="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Position</th>
-      <th>Cover Letter</th>
-      <th>Resume</th>
-      <th>Date</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+  <div class="container">
 
-<script>
+    <h2>📩 Contact Messages</h2>
+    <div class="card" id="contacts">Loading...</div>
 
-const SHEET_URL = "https://docs.google.com/spreadsheets/d/11SyClWJ_G5uIxdx5v4U90fLUK7TTYC0pGqfYJGFtz3A/gviz/tq?tqx=out:csv";
+    <h2>📄 CV Submissions</h2>
+    <div class="card" id="cvs">Loading...</div>
 
-fetch(SHEET_URL)
-.then(res => res.text())
-.then(data => {
+  </div>
 
-  const rows = data.split("\n").slice(1); // skip header
-  const tableBody = document.querySelector("#table tbody");
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
 
-  rows.forEach(row => {
-    const cols = row.split(",");
+    async function loadData() {
+      try {
+        const res = await fetch(API_URL);
+        const data = await res.json();
 
-    if (cols.length < 2) return;
+        // CONTACTS
+        let contactHTML = "<table><tr><th>Name</th><th>Email</th><th>Message</th></tr>";
 
-    let tr = document.createElement("tr");
+        (data.contacts || []).forEach(row => {
+          contactHTML += `<tr>
+            <td>${row.name || ""}</td>
+            <td>${row.email || ""}</td>
+            <td>${row.message || ""}</td>
+          </tr>`;
+        });
 
-    tr.innerHTML = `
-      <td>${cols[0] || ""}</td>
-      <td>${cols[1] || ""}</td>
-      <td>${cols[2] || ""}</td>
-      <td>${cols[3] || ""}</td>
-      <td>${cols[4] || ""}</td>
-      <td>${cols[5] ? `<a href="${cols[5]}" target="_blank">View CV</a>` : "No CV"}</td>
-      <td>${cols[6] || ""}</td>
-    `;
+        contactHTML += "</table>";
+        document.getElementById("contacts").innerHTML = contactHTML;
 
-    tableBody.appendChild(tr);
-  });
+        // CVS
+        let cvHTML = "<table><tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th></tr>";
 
-});
+        (data.cvs || []).forEach(row => {
+          cvHTML += `<tr>
+            <td>${row.name || ""}</td>
+            <td>${row.email || ""}</td>
+            <td>${row.phone || ""}</td>
+            <td>${row.message || ""}</td>
+          </tr>`;
+        });
 
-</script>
+        cvHTML += "</table>";
+        document.getElementById("cvs").innerHTML = cvHTML;
+
+      } catch (err) {
+        document.getElementById("contacts").innerHTML = "Error loading data";
+        document.getElementById("cvs").innerHTML = "Error loading data";
+      }
+    }
+
+    loadData();
+  </script>
 
 </body>
 </html>
