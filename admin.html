@@ -1,123 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Dashboard - Axis HR</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      background: #f5f7fb;
-      margin: 0;
-    }
-
-    header {
-      background: #0F4C81;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    h2 {
-      color: #0F4C81;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    th {
-      background: #0F4C81;
-      color: white;
-    }
-
-    .card {
-      background: white;
-      padding: 15px;
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-  </style>
+    <title>Axis HR Solutions Admin</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <header>
-    <h1>Axis HR Admin Dashboard</h1>
-  </header>
+<div class="container">
+    <h1>Admin Portal</h1>
 
-  <div class="container">
+    <p>
+        This section is under development.
+    </p>
 
-    <h2>📩 Contact Messages</h2>
-    <div class="card" id="contacts">Loading...</div>
-
-    <h2>📄 CV Submissions</h2>
-    <div class="card" id="cvs">Loading...</div>
-
-  </div>
-
-  <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
-
-    async function loadData() {
-      try {
-        const res = await fetch(API_URL);
-        const data = await res.json();
-
-        // CONTACTS
-        let contactHTML = "<table><tr><th>Name</th><th>Email</th><th>Message</th></tr>";
-
-        (data.contacts || []).forEach(row => {
-          contactHTML += `<tr>
-            <td>${row.name || ""}</td>
-            <td>${row.email || ""}</td>
-            <td>${row.message || ""}</td>
-          </tr>`;
-        });
-
-        contactHTML += "</table>";
-        document.getElementById("contacts").innerHTML = contactHTML;
-
-        // CVS
-        let cvHTML = "<table><tr><th>Name</th><th>Email</th><th>Phone</th><th>Message</th></tr>";
-
-        (data.cvs || []).forEach(row => {
-          cvHTML += `<tr>
-            <td>${row.name || ""}</td>
-            <td>${row.email || ""}</td>
-            <td>${row.phone || ""}</td>
-            <td>${row.message || ""}</td>
-          </tr>`;
-        });
-
-        cvHTML += "</table>";
-        document.getElementById("cvs").innerHTML = cvHTML;
-
-      } catch (err) {
-        document.getElementById("contacts").innerHTML = "Error loading data";
-        document.getElementById("cvs").innerHTML = "Error loading data";
-      }
-    }
-
-    loadData();
-  </script>
+    <a href="index.html" class="btn">
+        Return to Website
+    </a>
+</div>
 
 </body>
 </html>
