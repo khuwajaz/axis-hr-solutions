@@ -160,19 +160,20 @@
     </div>
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- CONTACT -->
   <section id="contact">
     <div class="container">
 
       <h2>Contact Us</h2>
-      <p class="section-subtitle">Send us your inquiry and we will respond quickly</p>
+      <p class="section-subtitle">Send your inquiry — we respond quickly</p>
 
-      <form style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;">
+      <form action="https://formspree.io/f/xlgkygnk" method="POST"
+        style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;">
 
-        <input type="text" placeholder="Your Name" required style="padding:12px;">
-        <input type="email" placeholder="Your Email" required style="padding:12px;">
-        <input type="text" placeholder="Subject" style="padding:12px;">
-        <textarea placeholder="Your Message" rows="5" required style="padding:12px;"></textarea>
+        <input type="text" name="name" placeholder="Your Name" required style="padding:12px;">
+        <input type="email" name="email" placeholder="Your Email" required style="padding:12px;">
+        <input type="text" name="subject" placeholder="Subject" style="padding:12px;">
+        <textarea name="message" placeholder="Your Message" rows="5" required style="padding:12px;"></textarea>
 
         <button type="submit" class="btn">Send Message</button>
 
@@ -182,22 +183,18 @@
   </section>
 
   <!-- FOOTER -->
-  <footer style="background:#0F4C81; color:white; padding:40px 20px; margin-top:40px;">
+  <footer style="background:#0F4C81;color:white;padding:40px 20px;margin-top:40px;text-align:center;">
 
-    <div class="container" style="text-align:center;">
+    <h3>Axis HR Solutions</h3>
+    <p>Professional HR & Administrative Consultancy Services</p>
 
-      <h3>Axis HR Solutions</h3>
-      <p>Professional HR & Administrative Services Provider</p>
+    <p style="margin-top:10px;">
+      📞 +92 311 9900744 | 📧 info@axishrsolutions.com
+    </p>
 
-      <p style="margin-top:15px;">
-        📞 +92 311 990744 | 📧 info@axishrsolutions.com
-      </p>
-
-      <p style="margin-top:20px; font-size:14px; opacity:0.8;">
-        © 2026 Axis HR Solutions. All Rights Reserved.
-      </p>
-
-    </div>
+    <p style="margin-top:20px; font-size:14px; opacity:0.8;">
+      © 2026 Axis HR Solutions. All Rights Reserved.
+    </p>
 
   </footer>
 
