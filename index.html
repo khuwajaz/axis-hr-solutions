@@ -1,306 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axis HR Solutions | International HR Consultancy</title>
-    <style>
-        /* Base Reset & Styling */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+/* =========================
+   RESET & BASE
+========================= */
 
-        body {
-            background-color: #fcfcfc;
-            color: #333;
-            line-height: 1.6;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        /* Variables for Branding Colors */
-        :root {
-            --primary-color: #0d3b66; /* Elegant Corporate Navy Blue */
-            --accent-color: #f4d35e;  /* Contrast Gold Accent */
-            --dark-color: #112233;
-            --light-color: #f4f6f9;
-        }
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #F7F9FC;
+  color: #333;
+  line-height: 1.6;
+}
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 20px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+/* =========================
+   CONTAINER
+========================= */
 
-        .logo h1 {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
 
-        .logo span {
-            color: var(--accent-color);
-        }
+/* =========================
+   NAVIGATION
+========================= */
 
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-        nav ul li {
-            margin-left: 20px;
-        }
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+nav a {
+  text-decoration: none;
+  color: #0F4C81;
+  font-weight: 600;
+}
 
-        nav ul li a:hover {
-            color: var(--accent-color);
-        }
+nav a:hover {
+  color: #00A3E0;
+}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(13, 59, 102, 0.85), rgba(17, 34, 51, 0.9)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
-            color: #fff;
-            padding: 100px 5%;
-            text-align: center;
-        }
+/* =========================
+   HERO SECTION
+========================= */
 
-        .hero h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
+.hero {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0F4C81, #00A3E0);
+  color: white;
+}
 
-        .hero p {
-            font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
 
-        .cta-btn {
-            background-color: var(--accent-color);
-            color: var(--dark-color);
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
+.hero p {
+  font-size: 18px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
 
-        .cta-btn:hover {
-            background-color: #e5c143;
-        }
+/* =========================
+   BUTTON
+========================= */
 
-        /* Container & Section Architecture */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 60px auto;
-        }
+.btn {
+  display: inline-block;
+  padding: 12px 22px;
+  background: #2BB673;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
 
-        section h2 {
-            text-align: center;
-            font-size: 32px;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            position: relative;
-        }
+.btn:hover {
+  background: #239a5f;
+}
 
-        section h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 10px auto 0 auto;
-        }
+/* =========================
+   SECTIONS
+========================= */
 
-        /* Services Grid Layout */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
+section {
+  padding: 70px 20px;
+}
 
-        .card {
-            background: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-color);
-            transition: transform 0.3s ease;
-        }
+h2 {
+  text-align: center;
+  color: #0F4C81;
+  margin-bottom: 10px;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 40px;
+}
 
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
+/* =========================
+   SERVICES GRID (8 CARDS)
+========================= */
 
-        /* Contact Details Section */
-        .contact-box {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: var(--light-color);
-            padding: 40px;
-            border-radius: 8px;
-        }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
 
-        .office-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
+.service-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: 0.3s;
+}
 
-        .office-info p {
-            margin-bottom: 10px;
-        }
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
 
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: #ccc;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
-            font-size: 14px;
-        }
+.service-card i {
+  font-size: 30px;
+  color: #0F4C81;
+  margin-bottom: 10px;
+}
 
-        /* Responsive Breakpoint Layouts */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            nav ul li {
-                margin: 5px 10px;
-            }
-            .hero h2 {
-                font-size: 30px;
-            }
-            .contact-box {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
+.service-card h3 {
+  color: #0F4C81;
+  margin-bottom: 8px;
+}
 
-    <header>
-        <div class="logo">
-            <h1>AXIS <span>HR SOLUTIONS</span></h1>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#sectors">Sectors</a></li>
-                <li><a href="#services">IT & HR Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+.service-card p {
+  font-size: 14px;
+  color: #555;
+}
 
-    <section class="hero">
-        <h2>Unlocking the Value of Human Capital</h2>
-        <p>With years of experience successfully providing professional HR solutions & corporate contract recruiting across Commercial, Industrial, Semi-Government & Government sectors globally.</p>
-        <a href="#contact" class="cta-btn">Partner With Us</a>
-    </section>
+/* =========================
+   GENERAL CARDS (OLD SYSTEM SUPPORT)
+========================= */
 
-    <div class="container">
-        
-        <section id="about" style="margin-bottom: 80px;">
-            <h2>About Us</h2>
-            <p style="text-align: center; max-width: 900px; margin: 0 auto; font-size: 17px;">
-                Axis HR Solutions focuses on providing unmatched technical expertise across all aspects of Human Resource Management. We work closely in partnership with our clients using a recognized smart process system to systematically achieve business goals with agility and flexibility.
-            </p>
-        </section>
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
 
-        <section id="sectors" style="margin-bottom: 80px;">
-            <h2>Sectors We Serve</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Oil &amp; Gas</h3>
-                    <p>Providing heavy placement options, specialized technicians, engineering personnel, and rig operations specialists.</p>
-                </div>
-                <div class="card">
-                    <h3>Facilities Management</h3>
-                    <p>Hard &amp; Soft services staffing solutions including HVAC, BMS, Electrical Systems, and asset management teams.</p>
-                </div>
-                <div class="card">
-                    <h3>Construction &amp; Infrastructure</h3>
-                    <p>Civil, MEP, Planning, and Estimation engineering placements coupled with certified on-site labor resources.</p>
-                </div>
-                <div class="card">
-                    <h3>Marine &amp; Ports</h3>
-                    <p>Staffing solutions from Master Captains and Marine Fleet Managers to certified offshore vessel operators.</p>
-                </div>
-            </div>
-        </section>
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
 
-        <section id="services" style="margin-bottom: 80px;">
-            <h2>Information Technology &amp; Strategy</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Web &amp; App Development</h3>
-                    <p>High-end responsive user experience builds, portfolio designs, and tailored digital business infrastructure.</p>
-                </div>
-                <div class="card">
-                    <h3>SEO &amp; Google Ads</h3>
-                    <p>Targeted visual analytics and visibility generation across search configurations to increase market scale.</p>
-                </div>
-                <div class="card">
-                    <h3>Social Media Marketing</h3>
-                    <p>Strategic brand management, creative graphic direction, and targeted corporate audience profiling campaigns.</p>
-                </div>
-            </div>
-        </section>
+/* =========================
+   WHATSAPP BUTTON
+========================= */
 
-        <section id="contact">
-            <h2>Get In Touch</h2>
-            <div class="contact-box">
-                <div class="office-info">
-                    <h3>UAE Office (Headquarters)</h3>
-                    <p><strong>Address:</strong> Office No: 948, 9th Floor, Corniche Area, Dar Al Salam Tower, Abu Dhabi, United Arab Emirates</p>
-                    <p><strong>Phone:</strong> +971 509 527 442</p>
-                    <p><strong>Email:</strong> info@axishrsolutions.com</p>
-                </div>
-                <div class="office-info">
-                    <h3>India Office</h3>
-                    <p><strong>Address:</strong> No. 27A, NT Patel Road, Nerkundram, Koyambedu, Chennai - 600 107 (Near MGR University)</p>
-                    <p><strong>Phone:</strong> +91 8807807164</p>
-                    <p><strong>Email:</strong> info@axishrsolutions.com</p>
-                </div>
-            </div>
-        </section>
+.whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
 
-    </div>
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 
-    <footer>
-        <p>&copy; 2026 Axis HR Solutions. All Rights Reserved. Built for global strategic placements.</p>
-    </footer>
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
 
-</body>
-</html>
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+}
