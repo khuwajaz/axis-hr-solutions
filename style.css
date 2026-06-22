@@ -1,88 +1,148 @@
 /* =========================
-   AXIS HR SOLUTIONS - PREMIUM CORPORATE UI
-   SAFE UPGRADE VERSION
+   AXIS HR SOLUTIONS
+   PREMIUM CORPORATE UI v3 (REFINED)
 ========================= */
 
-body {
-  margin: 0;
-  font-family: "Inter", Arial, sans-serif;
-  background: #f5f8fc;
-  color: #1f2937;
-  line-height: 1.6;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #0F4C81;
+  --accent: #2563eb;
+  --bg: #f5f8fc;
+  --card: #ffffff;
+  --text: #1f2937;
+  --muted: #6b7280;
 }
 
-/* NAV */
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   NAV (PREMIUM CORPORATE STYLE)
+========================= */
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
-  background: white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding: 18px 55px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .nav .logo {
   font-weight: 700;
   font-size: 18px;
-  color: #0F4C81;
-  letter-spacing: 0.3px;
+  color: var(--primary);
+  letter-spacing: 0.4px;
 }
 
 .nav nav a {
-  margin-left: 18px;
+  margin-left: 20px;
   text-decoration: none;
-  color: #0F4C81;
+  color: var(--primary);
   font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.nav nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
   transition: 0.3s;
 }
 
 .nav nav a:hover {
-  opacity: 0.6;
+  color: var(--accent);
 }
 
-/* HERO */
+.nav nav a:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   HERO (EXECUTIVE LOOK)
+========================= */
+
 .hero {
-  padding: 110px 20px;
+  padding: 130px 20px;
   text-align: center;
-  background: linear-gradient(135deg, #0F4C81, #2563eb);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent 60%);
+  transform: rotate(25deg);
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
+  font-size: 44px;
   font-weight: 700;
+  margin-bottom: 12px;
+  position: relative;
 }
 
 .hero p {
-  opacity: 0.9;
   font-size: 16px;
+  opacity: 0.9;
+  position: relative;
 }
 
 /* BUTTON */
 .btn {
   display: inline-block;
-  margin-top: 18px;
-  padding: 12px 22px;
+  margin-top: 22px;
+  padding: 12px 26px;
   background: #22c55e;
   color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
-  transition: 0.3s;
+  transition: 0.3s ease;
+  position: relative;
 }
 
 .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(34,197,94,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(34,197,94,0.25);
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
-  padding: 80px 20px;
+  padding: 90px 20px;
 }
 
 .section.alt {
@@ -91,61 +151,86 @@ body {
 
 h2 {
   text-align: center;
-  color: #0F4C81;
-  font-size: 30px;
+  font-size: 32px;
+  color: var(--primary);
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .sub {
   text-align: center;
-  opacity: 0.7;
-  margin-bottom: 40px;
+  color: var(--muted);
+  margin-bottom: 45px;
+  font-size: 15px;
 }
 
-/* GRID */
+/* =========================
+   GRID SYSTEM
+========================= */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
+  gap: 24px;
   max-width: 1100px;
   margin: auto;
 }
 
-/* CARD */
+/* =========================
+   CARDS (LUXURY CORPORATE STYLE)
+========================= */
+
 .card {
-  background: white;
-  padding: 26px;
-  border-radius: 14px;
+  background: var(--card);
+  padding: 28px;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  transition: 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: all 0.35s ease;
+  border: 1px solid rgba(0,0,0,0.04);
+
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   animation: fadeUp 0.6s forwards;
 }
 
 .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  transform: translateY(-8px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.12);
 }
 
-/* ICONS */
 .card i {
-  font-size: 26px;
-  color: #0F4C81;
-  margin-bottom: 10px;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 12px;
 }
 
-/* TEXT */
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* =========================
+   CENTER TEXT
+========================= */
+
 .center {
   text-align: center;
-  max-width: 750px;
+  max-width: 760px;
   margin: auto;
+  color: var(--muted);
   font-size: 16px;
-  opacity: 0.85;
 }
 
-/* ANIMATION */
+/* =========================
+   ANIMATION
+========================= */
+
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -153,7 +238,7 @@ h2 {
   }
 }
 
-/* STAGGER ANIMATION */
+/* stagger effect */
 .card:nth-child(1){animation-delay:0.05s}
 .card:nth-child(2){animation-delay:0.1s}
 .card:nth-child(3){animation-delay:0.15s}
@@ -163,7 +248,10 @@ h2 {
 .card:nth-child(7){animation-delay:0.35s}
 .card:nth-child(8){animation-delay:0.4s}
 
-/* WHATSAPP */
+/* =========================
+   WHATSAPP FLOAT BUTTON
+========================= */
+
 .whatsapp {
   position: fixed;
   bottom: 22px;
@@ -174,5 +262,10 @@ h2 {
   border-radius: 50%;
   font-size: 22px;
   text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  transition: 0.3s ease;
+}
+
+.whatsapp:hover {
+  transform: scale(1.1);
 }
