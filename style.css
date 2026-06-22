@@ -1,18 +1,16 @@
 /* =========================
    AXIS HR SOLUTIONS
-   CONSULTING-LEVEL FINAL UI (McKinsey-inspired v3)
+   ELITE CONSULTING UI (McKinsey / BCG STYLE)
 ========================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
   --navy: #0b1f3a;
-  --accent: #1d4ed8;
-  --bg: #ffffff;
-  --soft: #f6f8fb;
-  --card: #ffffff;
   --text: #111827;
   --muted: #6b7280;
+  --bg: #ffffff;
+  --soft: #f6f8fb;
   --border: #e5e7eb;
 }
 
@@ -30,14 +28,14 @@ body {
 }
 
 /* =========================
-   NAVIGATION (CONSULTING STYLE)
+   NAV (MINIMAL CONSULTING)
 ========================= */
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 70px;
+  padding: 22px 70px;
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(12px);
   position: sticky;
@@ -50,7 +48,7 @@ body {
   font-size: 16px;
   font-weight: 700;
   color: var(--navy);
-  letter-spacing: 0.4px;
+  letter-spacing: 0.5px;
 }
 
 .nav nav a {
@@ -67,14 +65,14 @@ body {
 }
 
 /* =========================
-   HERO (MC KINSEY STYLE)
+   HERO (CONSULTING STYLE)
 ========================= */
 
 .hero {
   background: var(--navy);
   color: white;
   text-align: center;
-  padding: 140px 20px 110px;
+  padding: 150px 20px 120px;
 }
 
 .hero h1 {
@@ -91,7 +89,7 @@ body {
   opacity: 0.8;
 }
 
-/* BUTTON (EXECUTIVE CTA) */
+/* BUTTON */
 .btn {
   display: inline-block;
   margin-top: 24px;
@@ -112,7 +110,7 @@ body {
 }
 
 /* =========================
-   SECTIONS (PRO STRUCTURE)
+   SECTIONS (STRUCTURED SPACING)
 ========================= */
 
 .section {
@@ -136,8 +134,8 @@ h2 {
 
 .sub {
   text-align: center;
-  color: var(--muted);
   font-size: 15px;
+  color: var(--muted);
   margin-bottom: 50px;
 }
 
@@ -156,16 +154,16 @@ h2 {
 ========================= */
 
 .card {
-  background: var(--card);
+  background: white;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 8px;
   padding: 28px;
   text-align: left;
-  transition: 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   border-color: #d1d5db;
 }
 
@@ -217,32 +215,3 @@ h2 {
 .whatsapp:hover {
   transform: scale(1.08);
 }
-
-/* =========================
-   ANIMATION (SUBTLE ONLY)
-========================= */
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.card {
-  animation: fadeUp 0.6s ease forwards;
-  opacity: 0;
-}
-
-.card:nth-child(1){animation-delay:0.05s}
-.card:nth-child(2){animation-delay:0.1s}
-.card:nth-child(3){animation-delay:0.15s}
-.card:nth-child(4){animation-delay:0.2s}
-.card:nth-child(5){animation-delay:0.25s}
-.card:nth-child(6){animation-delay:0.3s}
-.card:nth-child(7){animation-delay:0.35s}
-.card:nth-child(8){animation-delay:0.4s}
