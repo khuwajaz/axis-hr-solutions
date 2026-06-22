@@ -43,61 +43,66 @@
     <div class="card">
       <i class="fas fa-users"></i>
       <h3>Human Resource Management</h3>
+      <p>End-to-end HR lifecycle support.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-user-plus"></i>
       <h3>Recruitment & Staffing</h3>
+      <p>Permanent & executive hiring solutions.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-money-check-dollar"></i>
       <h3>Payroll Management</h3>
+      <p>Salary processing & compliance.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-briefcase"></i>
       <h3>Administrative Support</h3>
+      <p>Office operations & documentation.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-building"></i>
       <h3>HR Outsourcing</h3>
+      <p>Complete HR department outsourcing.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-graduation-cap"></i>
       <h3>Training & Development</h3>
+      <p>Professional skill development programs.</p>
     </div>
 
     <!-- CV CARD -->
-    <div class="card">
+    <div class="card highlight">
       <i class="fas fa-file-lines"></i>
       <h3>CV & Career Services</h3>
-      <p>Apply professionally via HR system</p>
+      <p>Apply instantly via HR system</p>
 
-      <button class="btn" onclick="openCVModal()">
-        Send CV
-      </button>
+      <button class="btn" onclick="openModal()">Apply Now</button>
     </div>
 
     <div class="card">
       <i class="fas fa-chart-line"></i>
       <h3>Business HR Consultancy</h3>
+      <p>HR strategy & organizational development.</p>
     </div>
 
   </div>
 </section>
 
 <!-- WHY -->
-<section id="why" class="section">
+<section id="why" class="section alt">
   <h2>Why Choose Us</h2>
 
   <div class="grid">
-    <div class="card"><h3>Experience</h3></div>
-    <div class="card"><h3>Fast Delivery</h3></div>
-    <div class="card"><h3>Trusted Network</h3></div>
-    <div class="card"><h3>Compliance</h3></div>
+    <div class="card"><h3>Experience</h3><p>HR expertise.</p></div>
+    <div class="card"><h3>Fast Delivery</h3><p>Quick solutions.</p></div>
+    <div class="card"><h3>Trusted Network</h3><p>Strong talent pool.</p></div>
+    <div class="card"><h3>Compliance</h3><p>Proper HR systems.</p></div>
   </div>
 </section>
 
@@ -105,13 +110,14 @@
 <section id="about" class="section">
   <h2>About Us</h2>
   <p class="center">
-    Axis HR Solutions provides recruitment, payroll, outsourcing and HR consultancy services.
+    Axis HR Solutions is a professional HR consultancy providing recruitment, payroll, outsourcing and administrative services.
   </p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact</h2>
+
   <p class="center">
     📞 +92 311 9900744 <br>
     📧 info@axishrsolutions.com
@@ -123,33 +129,35 @@
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- ================= CV MODAL ================= -->
-<div id="cvModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeCVModal()">&times;</span>
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-box">
 
-    <h2>Apply for Opportunities</h2>
+    <span class="close" onclick="closeModal()">&times;</span>
+
+    <h2>Apply for CV Submission</h2>
 
     <input type="text" id="name" placeholder="Full Name">
     <input type="email" id="email" placeholder="Email">
     <input type="text" id="phone" placeholder="Phone">
-    <textarea id="message" placeholder="Short message / experience"></textarea>
+    <textarea id="message" placeholder="Experience / Message"></textarea>
 
-    <button class="btn" onclick="sendCV()">Continue to Email</button>
+    <button class="btn" onclick="sendMail()">Continue to Email</button>
+
   </div>
 </div>
 
-<!-- ================= SCRIPT ================= -->
 <script>
-function openCVModal() {
-  document.getElementById("cvModal").style.display = "flex";
+function openModal() {
+  document.getElementById("modal").style.display = "flex";
 }
 
-function closeCVModal() {
-  document.getElementById("cvModal").style.display = "none";
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
 }
 
-function sendCV() {
+function sendMail() {
+
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   const phone = document.getElementById("phone").value;
@@ -158,9 +166,7 @@ function sendCV() {
   const subject = "CV Submission - Axis HR Solutions";
 
   const body =
-`Dear HR Team,
-
-Please find my details below:
+`CV APPLICATION
 
 Name: ${name}
 Email: ${email}
@@ -169,15 +175,11 @@ Phone: ${phone}
 Message:
 ${message}
 
-I will attach my CV before sending.
+Please attach your CV before sending.`;
 
-Regards,
-${name}`;
+  const mailto = `mailto:info@axishrsolutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-  const mailtoLink =
-`mailto:info@axishrsolutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  window.location.href = mailtoLink;
+  window.location.href = mailto;
 }
 </script>
 
