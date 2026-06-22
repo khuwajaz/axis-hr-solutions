@@ -1,6 +1,5 @@
 /* =========================
-   AXIS HR SOLUTIONS - PREMIUM CORPORATE UI
-   SAFE UPGRADE VERSION
+   AXIS HR SOLUTIONS - PREMIUM CORPORATE UI (STABLE UPGRADE)
 ========================= */
 
 body {
@@ -9,6 +8,7 @@ body {
   background: #f5f8fc;
   color: #1f2937;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* NAV */
@@ -16,7 +16,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 18px 50px;
   background: white;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   position: sticky;
@@ -25,10 +25,10 @@ body {
 }
 
 .nav .logo {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 18px;
   color: #0F4C81;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
 }
 
 .nav nav a {
@@ -36,11 +36,12 @@ body {
   text-decoration: none;
   color: #0F4C81;
   font-weight: 500;
-  transition: 0.3s;
+  transition: 0.25s ease;
+  position: relative;
 }
 
 .nav nav a:hover {
-  opacity: 0.6;
+  opacity: 0.65;
 }
 
 /* HERO */
@@ -52,9 +53,10 @@ body {
 }
 
 .hero h1 {
-  font-size: 42px;
+  font-size: 44px;
   margin-bottom: 10px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .hero p {
@@ -70,14 +72,16 @@ body {
   background: #22c55e;
   color: white;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 600;
-  transition: 0.3s;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(34,197,94,0.25);
+  box-shadow: 0 10px 22px rgba(34,197,94,0.25);
 }
 
 /* SECTIONS */
@@ -92,13 +96,14 @@ body {
 h2 {
   text-align: center;
   color: #0F4C81;
-  font-size: 30px;
+  font-size: 32px;
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .sub {
   text-align: center;
-  opacity: 0.7;
+  opacity: 0.75;
   margin-bottom: 40px;
 }
 
@@ -115,18 +120,17 @@ h2 {
 .card {
   background: white;
   padding: 26px;
-  border-radius: 14px;
+  border-radius: 16px;
   text-align: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   transition: 0.3s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.6s forwards;
+  transform: translateY(0);
+  opacity: 1; /* FIXED: prevents invisible cards */
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
 }
 
 /* ICONS */
@@ -145,23 +149,53 @@ h2 {
   opacity: 0.85;
 }
 
-/* ANIMATION */
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* =========================
+   MODAL (CRITICAL FIX)
+========================= */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* STAGGER ANIMATION */
-.card:nth-child(1){animation-delay:0.05s}
-.card:nth-child(2){animation-delay:0.1s}
-.card:nth-child(3){animation-delay:0.15s}
-.card:nth-child(4){animation-delay:0.2s}
-.card:nth-child(5){animation-delay:0.25s}
-.card:nth-child(6){animation-delay:0.3s}
-.card:nth-child(7){animation-delay:0.35s}
-.card:nth-child(8){animation-delay:0.4s}
+.modal-box {
+  background: white;
+  padding: 25px;
+  width: 90%;
+  max-width: 420px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-box input,
+.modal-box textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus {
+  border-color: #0F4C81;
+  box-shadow: 0 0 0 2px rgba(15,76,129,0.1);
+}
+
+.close {
+  text-align: right;
+  font-size: 22px;
+  cursor: pointer;
+}
 
 /* WHATSAPP */
 .whatsapp {
@@ -175,4 +209,17 @@ h2 {
   font-size: 22px;
   text-decoration: none;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
 }
