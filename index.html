@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Axis HR Solutions</title>
 
-  <meta name="description" content="Axis HR Solutions provides HR outsourcing, recruitment, payroll and administrative services in Pakistan.">
-  <meta name="keywords" content="HR outsourcing Pakistan, recruitment agency, payroll services, CV submission, HR consultancy">
-
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -45,35 +42,54 @@
 
       <div class="services-grid">
 
-        <div class="service-card"><i class="fas fa-users"></i><h3>HR Management</h3><p>End-to-end HR support.</p></div>
-        <div class="service-card"><i class="fas fa-user-plus"></i><h3>Recruitment</h3><p>Hiring solutions.</p></div>
-        <div class="service-card"><i class="fas fa-money-check-dollar"></i><h3>Payroll</h3><p>Salary processing.</p></div>
-        <div class="service-card"><i class="fas fa-briefcase"></i><h3>Admin Support</h3><p>Office operations.</p></div>
-        <div class="service-card"><i class="fas fa-building"></i><h3>HR Outsourcing</h3><p>Full HR outsourcing.</p></div>
-        <div class="service-card"><i class="fas fa-graduation-cap"></i><h3>Training</h3><p>Skill development.</p></div>
-
-        <!-- CV FORM -->
         <div class="service-card">
-          <i class="fas fa-file-lines"></i>
-          <h3>CV & Career Services</h3>
-          <p>Submit your CV for opportunities.</p>
-
-          <form action="https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec"
-            method="POST"
-            style="margin-top:15px;display:flex;flex-direction:column;gap:10px;">
-
-            <input type="hidden" name="source" value="Website CV Submission">
-
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="text" name="phone" placeholder="Phone" required>
-            <textarea name="message" placeholder="Short Profile" rows="3"></textarea>
-
-            <button type="submit" class="btn">Submit CV</button>
-          </form>
+          <i class="fas fa-users"></i>
+          <h3>Human Resource Management</h3>
+          <p>End-to-end HR support.</p>
         </div>
 
-        <div class="service-card"><i class="fas fa-chart-line"></i><h3>Consultancy</h3><p>HR strategy.</p></div>
+        <div class="service-card">
+          <i class="fas fa-user-plus"></i>
+          <h3>Recruitment & Staffing</h3>
+          <p>Hiring solutions.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-money-check-dollar"></i>
+          <h3>Payroll Management</h3>
+          <p>Salary processing.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>Administrative Support</h3>
+          <p>Office operations.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-building"></i>
+          <h3>HR Outsourcing</h3>
+          <p>Full HR outsourcing.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Training & Development</h3>
+          <p>Skill development.</p>
+        </div>
+
+        <!-- CV CARD WITH POPUP -->
+        <div class="service-card" onclick="openModal()" style="cursor:pointer;">
+          <i class="fas fa-file-lines"></i>
+          <h3>CV & Career Services</h3>
+          <p>Click to apply with CV</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Business HR Consultancy</h3>
+          <p>HR strategy & planning.</p>
+        </div>
 
       </div>
     </div>
@@ -82,16 +98,18 @@
   <!-- WHY CHOOSE -->
   <section id="why-choose">
     <div class="container">
-      <h2>Why Choose Us</h2>
+
+      <h2>Why Choose Axis HR Solutions</h2>
 
       <div class="services-grid">
         <div class="service-card"><i class="fas fa-briefcase"></i><h3>Experience</h3><p>HR expertise.</p></div>
         <div class="service-card"><i class="fas fa-globe"></i><h3>Multi-Sector</h3><p>NGOs & corporates.</p></div>
         <div class="service-card"><i class="fas fa-users"></i><h3>Talent Network</h3><p>Skilled professionals.</p></div>
         <div class="service-card"><i class="fas fa-bolt"></i><h3>Fast Delivery</h3><p>Quick execution.</p></div>
-        <div class="service-card"><i class="fas fa-shield-alt"></i><h3>Compliance</h3><p>Standards.</p></div>
-        <div class="service-card"><i class="fas fa-handshake"></i><h3>Trust</h3><p>Reliable partner.</p></div>
+        <div class="service-card"><i class="fas fa-shield-alt"></i><h3>Compliance</h3><p>HR standards.</p></div>
+        <div class="service-card"><i class="fas fa-handshake"></i><h3>Trust</h3><p>Long-term partner.</p></div>
       </div>
+
     </div>
   </section>
 
@@ -99,45 +117,55 @@
   <section id="about">
     <div class="container">
       <h2>About Us</h2>
-      <p>Axis HR Solutions provides HR outsourcing, recruitment, payroll and consultancy services in Pakistan.</p>
+      <p>Axis HR Solutions provides HR outsourcing, recruitment, payroll and consultancy services.</p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
+
       <h2>Contact Us</h2>
 
-      <form action="https://formspree.io/f/xlgkygnk" method="POST"
-        style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:12px;">
+      <p style="text-align:center;">
+        📞 +92 311 9900744 <br>
+        📧 info@axishrsolutions.com
+      </p>
 
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Message" rows="5" required></textarea>
-
-        <button type="submit" class="btn">Send Message</button>
-      </form>
     </div>
   </section>
-
-  <!-- CTA -->
-  <section style="background:#0F4C81;color:white;text-align:center;padding:50px 20px;">
-    <h2 style="color:white;">Need HR Support?</h2>
-    <p>Let’s build your workforce professionally</p>
-    <a href="#contact" class="btn">Get Started</a>
-  </section>
-
-  <!-- FOOTER -->
-  <footer style="background:#0F4C81;color:white;text-align:center;padding:40px;">
-    <h3>Axis HR Solutions</h3>
-    <p>📞 +92 311 9900744 | 📧 info@axishrsolutions.com</p>
-    <p>© 2026 Axis HR Solutions</p>
-  </footer>
 
   <!-- WHATSAPP -->
   <a href="https://wa.me/923119900744" class="whatsapp" target="_blank">
     WhatsApp Us
   </a>
+
+  <!-- CV MODAL -->
+  <div id="cvModal" class="modal">
+    <div class="modal-content">
+
+      <h2>Apply for Jobs</h2>
+      <p>Send your CV directly to our HR team.</p>
+
+      <a class="email-btn"
+         href="mailto:info@axishrsolutions.com?subject=Job Application - Axis HR Solutions&body=Dear HR Team,%0D%0A%0D%0APlease find my CV attached.%0D%0A%0D%0AThank you.">
+        Open Email App
+      </a>
+
+      <button onclick="closeModal()">Close</button>
+
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("cvModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("cvModal").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
