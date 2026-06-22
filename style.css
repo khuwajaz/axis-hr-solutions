@@ -1,221 +1,166 @@
 /* =========================
-   AXIS HR SOLUTIONS
-   FINAL PREMIUM CONSULTING POLISH (McKinsey-inspired)
+   AXIS HR SOLUTIONS - PREMIUM CORPORATE UI (STABLE UPGRADE)
 ========================= */
 
-:root {
-  --navy: #0b1f3a;
-  --text: #111827;
-  --muted: #6b7280;
-  --bg: #ffffff;
-  --soft: #f5f7fb;
-  --border: #e5e7eb;
-  --accent: #0b1f3a;
-}
-
-/* GLOBAL */
 body {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
+  background: #f5f8fc;
+  color: #1f2937;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
-
+/* NAV */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 70px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
+  padding: 18px 50px;
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .nav .logo {
-  font-weight: 700;
-  font-size: 16px;
-  letter-spacing: 0.5px;
-  color: var(--navy);
+  font-weight: 800;
+  font-size: 18px;
+  color: #0F4C81;
+  letter-spacing: 0.4px;
 }
 
 .nav nav a {
-  margin-left: 22px;
+  margin-left: 18px;
   text-decoration: none;
-  font-size: 14px;
+  color: #0F4C81;
   font-weight: 500;
-  color: var(--muted);
-  transition: 0.2s ease;
+  transition: 0.25s ease;
+  position: relative;
 }
 
 .nav nav a:hover {
-  color: var(--navy);
+  opacity: 0.65;
 }
 
-/* =========================
-   HERO (CONSULTING STYLE)
-========================= */
-
+/* HERO */
 .hero {
-  background: var(--navy);
-  color: white;
-  padding: 140px 20px 110px;
+  padding: 110px 20px;
   text-align: center;
-}
-
-.hero-content {
-  max-width: 900px;
-  margin: auto;
+  background: linear-gradient(135deg, #0F4C81, #2563eb);
+  color: white;
 }
 
 .hero h1 {
-  font-size: 46px;
-  font-weight: 700;
-  letter-spacing: -0.8px;
-  margin: 0;
+  font-size: 44px;
+  margin-bottom: 10px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .hero p {
-  margin-top: 16px;
+  opacity: 0.9;
   font-size: 16px;
-  opacity: 0.8;
 }
 
-/* HERO ACTIONS */
-.hero-actions {
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-/* =========================
-   BUTTONS (EXECUTIVE STYLE)
-========================= */
-
+/* BUTTON */
 .btn {
-  padding: 12px 26px;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-  background: white;
-  color: var(--navy);
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 22px;
+  background: #22c55e;
+  color: white;
   text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 22px rgba(34,197,94,0.25);
 }
 
-/* =========================
-   SECTIONS (EDITORIAL SPACING)
-========================= */
-
+/* SECTIONS */
 .section {
-  padding: 110px 20px;
-  max-width: 1100px;
-  margin: auto;
+  padding: 80px 20px;
 }
 
 .section.alt {
-  background: var(--soft);
-  max-width: 100%;
+  background: white;
 }
 
 h2 {
   text-align: center;
-  font-size: 34px;
-  font-weight: 700;
-  color: var(--navy);
+  color: #0F4C81;
+  font-size: 32px;
   margin-bottom: 10px;
+  font-weight: 700;
 }
 
 .sub {
   text-align: center;
-  font-size: 15px;
-  color: var(--muted);
-  margin-bottom: 50px;
+  opacity: 0.75;
+  margin-bottom: 40px;
 }
 
-/* =========================
-   GRID SYSTEM
-========================= */
-
+/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  max-width: 1100px;
+  margin: auto;
 }
 
-/* =========================
-   CARDS (CONSULTING STYLE)
-========================= */
-
+/* CARD */
 .card {
   background: white;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 28px;
-  text-align: left;
-  transition: all 0.25s ease;
+  padding: 26px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  transition: 0.3s ease;
+  transform: translateY(0);
+  opacity: 1; /* FIXED: prevents invisible cards */
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  border-color: #d1d5db;
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
 }
 
+/* ICONS */
 .card i {
-  font-size: 20px;
-  color: var(--navy);
+  font-size: 26px;
+  color: #0F4C81;
   margin-bottom: 10px;
 }
 
-.card h3 {
-  font-size: 16px;
-  margin-bottom: 8px;
-  color: var(--text);
-}
-
-.card p {
-  font-size: 14px;
-  color: var(--muted);
-}
-
-/* =========================
-   TEXT BLOCKS
-========================= */
-
+/* TEXT */
 .center {
   text-align: center;
   max-width: 750px;
   margin: auto;
-  color: var(--muted);
-  font-size: 15px;
+  font-size: 16px;
+  opacity: 0.85;
 }
 
 /* =========================
-   MODAL (CLEAN CORPORATE UI)
+   MODAL (CRITICAL FIX)
 ========================= */
 
 .modal {
   display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(11, 31, 58, 0.65);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -223,61 +168,58 @@ h2 {
 
 .modal-box {
   background: white;
-  padding: 26px;
-  width: 92%;
+  padding: 25px;
+  width: 90%;
   max-width: 420px;
-  border-radius: 10px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
-
-.modal-box h3 {
-  margin: 0;
-  font-size: 18px;
-  color: var(--navy);
 }
 
 .modal-box input,
 .modal-box textarea {
   padding: 10px;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
 }
 
 .modal-box input:focus,
 .modal-box textarea:focus {
-  outline: none;
-  border-color: var(--navy);
+  border-color: #0F4C81;
+  box-shadow: 0 0 0 2px rgba(15,76,129,0.1);
 }
 
 .close {
   text-align: right;
-  font-size: 20px;
+  font-size: 22px;
   cursor: pointer;
-  color: var(--muted);
 }
 
-/* =========================
-   WHATSAPP BUTTON
-========================= */
-
+/* WHATSAPP */
 .whatsapp {
   position: fixed;
   bottom: 22px;
   right: 22px;
-  background: var(--navy);
+  background: #25D366;
   color: white;
-  padding: 14px;
+  padding: 16px;
   border-radius: 50%;
-  font-size: 18px;
+  font-size: 22px;
   text-decoration: none;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: 0.2s ease;
 }
 
-.whatsapp:hover {
-  transform: scale(1.05);
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
 }
