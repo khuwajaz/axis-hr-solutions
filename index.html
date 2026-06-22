@@ -3,222 +3,114 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Axis HR Admin Dashboard Pro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axis HR Solutions</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f7fb;
-    }
+  <!-- CSS (LOCKED PATH) -->
+  <link rel="stylesheet" href="./style.css">
 
-    header {
-      background: #0F4C81;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-
-    .card h2 {
-      margin: 0;
-      color: #0F4C81;
-    }
-
-    .controls {
-      margin-top: 20px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    button, select, input {
-      padding: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    button {
-      background: #0F4C81;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #09345a;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-      background: white;
-      font-size: 14px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-    }
-
-    th {
-      background: #0F4C81;
-      color: white;
-    }
-
-    .section-title {
-      margin-top: 30px;
-      color: #0F4C81;
-    }
-  </style>
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>Axis HR Admin Dashboard Pro</h1>
-  </header>
+  <!-- NAV -->
+  <nav>
+    <h2>Axis HR Solutions</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <div class="container">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <h1>Professional HR & Administrative Solutions</h1>
+    <p>We build efficient workforce systems for organizations</p>
+    <a href="#services" class="btn">Explore Services</a>
+  </section>
 
-    <!-- STATS -->
-    <div class="stats">
-      <div class="card">
-        <h2 id="totalContacts">0</h2>
-        <p>Total Contacts</p>
-      </div>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
 
-      <div class="card">
-        <h2 id="totalCVs">0</h2>
-        <p>Total CVs</p>
+      <h2>Our Services</h2>
+      <p class="section-subtitle">
+        Complete HR & Administrative Solutions for Modern Organizations
+      </p>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <i class="fas fa-users"></i>
+          <h3>Human Resource Management</h3>
+          <p>End-to-end HR support including recruitment, onboarding, policies, and employee management.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-user-plus"></i>
+          <h3>Recruitment & Staffing</h3>
+          <p>Permanent, temporary, and executive hiring across corporate and NGO sectors.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-money-check-dollar"></i>
+          <h3>Payroll Management</h3>
+          <p>Accurate salary processing, attendance tracking, and compliance reporting.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-briefcase"></i>
+          <h3>Administrative Support</h3>
+          <p>Office administration, documentation, and operational coordination.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-building"></i>
+          <h3>HR Outsourcing</h3>
+          <p>Complete HR department outsourcing for organizations.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-graduation-cap"></i>
+          <h3>Training & Development</h3>
+          <p>Leadership and professional skill development programs.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-file-lines"></i>
+          <h3>CV & Career Services</h3>
+          <p>CV writing, LinkedIn optimization, and interview preparation.</p>
+        </div>
+
+        <div class="service-card">
+          <i class="fas fa-chart-line"></i>
+          <h3>Business HR Consultancy</h3>
+          <p>HR strategy, policies, and organizational development.</p>
+        </div>
+
       </div>
     </div>
+  </section>
 
-    <!-- CONTROLS -->
-    <div class="controls">
-      <button onclick="loadData()">🔄 Refresh</button>
-
-      <select id="filter" onchange="renderTable()">
-        <option value="all">All</option>
-        <option value="contacts">Contacts</option>
-        <option value="cvs">CVs</option>
-      </select>
-
-      <input type="text" id="search" placeholder="Search name/email..." onkeyup="renderTable()">
-
-      <button onclick="exportCSV()">⬇ Export CSV</button>
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        Axis HR Solutions provides complete HR and administrative services including recruitment,
+        payroll, outsourcing, and consultancy solutions.
+      </p>
     </div>
+  </section>
 
-    <h2 class="section-title">📋 Records</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Message</th>
-          <th>Type</th>
-        </tr>
-      </thead>
-      <tbody id="tableBody"></tbody>
-    </table>
-
-  </div>
-
-  <script>
-    const API_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
-
-    let allData = [];
-
-    async function loadData() {
-      const res = await fetch(API_URL);
-      const data = await res.json();
-
-      allData = [];
-
-      (data.contacts || []).forEach(c => allData.push({ ...c, type: "Contact" }));
-      (data.cvs || []).forEach(c => allData.push({ ...c, type: "CV" }));
-
-      document.getElementById("totalContacts").innerText = data.contacts.length;
-      document.getElementById("totalCVs").innerText = data.cvs.length;
-
-      renderTable();
-    }
-
-    function renderTable() {
-      const filter = document.getElementById("filter").value;
-      const search = document.getElementById("search").value.toLowerCase();
-
-      let filtered = allData;
-
-      if (filter !== "all") {
-        filtered = filtered.filter(x => x.type.toLowerCase() === filter.slice(0, -1));
-      }
-
-      if (search) {
-        filtered = filtered.filter(x =>
-          (x.name || "").toLowerCase().includes(search) ||
-          (x.email || "").toLowerCase().includes(search)
-        );
-      }
-
-      const tbody = document.getElementById("tableBody");
-      tbody.innerHTML = "";
-
-      filtered.forEach(row => {
-        tbody.innerHTML += `
-          <tr>
-            <td>${row.date || ""}</td>
-            <td>${row.name || ""}</td>
-            <td>${row.email || ""}</td>
-            <td>${row.phone || ""}</td>
-            <td>${row.message || ""}</td>
-            <td>${row.type}</td>
-          </tr>
-        `;
-      });
-    }
-
-    function exportCSV() {
-      let csv = "Date,Name,Email,Phone,Message,Type\n";
-
-      allData.forEach(r => {
-        csv += `${r.date},${r.name},${r.email},${r.phone},${r.message},${r.type}\n`;
-      });
-
-      const blob = new Blob([csv], { type: "text/csv" });
-      const url = window.URL.createObjectURL(blob);
-
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "axis_hr_data.csv";
-      a.click();
-    }
-  </script>
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/923119900744" class="whatsapp" target="_blank">
+    WhatsApp Us
+  </a>
 
 </body>
 </html>
