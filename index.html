@@ -30,21 +30,15 @@
 
 <!-- HERO -->
 <section id="home" class="hero">
-  <div class="hero-content">
-
+  <div class="container">
     <h1>Professional HR & Administrative Solutions</h1>
-
     <p>Recruitment • Payroll • Outsourcing • HR Consultancy</p>
-
     <a href="#services" class="btn">Explore Services</a>
-     <button class="btn" onclick="openCV()">Apply / Submit CV</button>
-   
   </div>
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="section">
-
   <h2>Our Services</h2>
   <p class="sub">Complete HR & Administrative Solutions</p>
 
@@ -86,10 +80,17 @@
       <p>Professional skill development programs.</p>
     </div>
 
+    <!-- ✅ CV RESTORED (MAIL CLIENT POPUP) -->
     <div class="card">
       <i class="fas fa-file-lines"></i>
       <h3>CV & Career Services</h3>
-      <p>Professional CV submission via email popup system.</p>
+      <p>Apply instantly by sending your CV via email.</p>
+
+      <a class="btn"
+         href="mailto:info@axishrsolutions.com?subject=CV%20Submission%20-%20Axis%20HR%20Solutions&body=Dear%20HR%20Team,%0D%0A%0D%0APlease%20find%20my%20CV%20attached.%0D%0A%0D%0AName:%0D%0APhone:%0D%0AExperience:%0D%0A%0D%0ARegards,"
+         target="_blank">
+        Send CV
+      </a>
     </div>
 
     <div class="card">
@@ -103,7 +104,6 @@
 
 <!-- WHY US -->
 <section id="why" class="section alt">
-
   <h2>Why Choose Us</h2>
 
   <div class="grid">
@@ -135,7 +135,7 @@
 <section id="about" class="section">
   <h2>About Us</h2>
   <p class="center">
-    Axis HR Solutions is a professional HR consultancy providing recruitment, payroll, outsourcing and administrative services across Pakistan.
+    Axis HR Solutions is a professional HR consultancy providing recruitment, payroll, outsourcing and administrative services.
   </p>
 </section>
 
@@ -153,66 +153,6 @@
 <a class="whatsapp" href="https://wa.me/923119900744" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
-
-<!-- CV MODAL -->
-<div id="cvModal" class="modal">
-  <div class="modal-box">
-
-    <span class="close" onclick="closeCV()">×</span>
-
-    <h3>Submit Your CV</h3>
-
-    <input type="text" id="name" placeholder="Full Name">
-    <input type="email" id="email" placeholder="Email">
-    <input type="text" id="phone" placeholder="Phone">
-    <textarea id="message" placeholder="Short Profile / Experience"></textarea>
-
-    <button class="btn" onclick="sendEmail()">Send via Email</button>
-
-  </div>
-</div>
-
-<!-- SCRIPT -->
-<script>
-function openCV() {
-  document.getElementById("cvModal").style.display = "flex";
-}
-
-function closeCV() {
-  document.getElementById("cvModal").style.display = "none";
-}
-
-window.onclick = function(e) {
-  const modal = document.getElementById("cvModal");
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-}
-
-function sendEmail() {
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const message = document.getElementById("message").value;
-
-  const subject = "CV Submission - Axis HR Solutions";
-
-  const body =
-`New CV Submission:
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-
-Message:
-${message}
-
-Please respond to candidate.`;
-
-  window.location.href =
-    `mailto:info@axishrsolutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-</script>
 
 </body>
 </html>
