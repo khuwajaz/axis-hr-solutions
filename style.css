@@ -1,157 +1,4 @@
-/* =========================
-   AXIS HR SOLUTIONS - PREMIUM CORPORATE UI (STABLE UPGRADE)
-========================= */
-
-body {
-  margin: 0;
-  font-family: "Inter", Arial, sans-serif;
-  background: #f5f8fc;
-  color: #1f2937;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-
-/* NAV */
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 50px;
-  background: white;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav .logo {
-  font-weight: 800;
-  font-size: 18px;
-  color: #0F4C81;
-  letter-spacing: 0.4px;
-}
-
-.nav nav a {
-  margin-left: 18px;
-  text-decoration: none;
-  color: #0F4C81;
-  font-weight: 500;
-  transition: 0.25s ease;
-  position: relative;
-}
-
-.nav nav a:hover {
-  opacity: 0.65;
-}
-
-/* HERO */
-.hero {
-  padding: 110px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #0F4C81, #2563eb);
-  color: white;
-}
-
-.hero h1 {
-  font-size: 44px;
-  margin-bottom: 10px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-.hero p {
-  opacity: 0.9;
-  font-size: 16px;
-}
-
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 12px 22px;
-  background: #22c55e;
-  color: white;
-  text-decoration: none;
-  border-radius: 10px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(34,197,94,0.25);
-}
-
-/* SECTIONS */
-.section {
-  padding: 80px 20px;
-}
-
-.section.alt {
-  background: white;
-}
-
-h2 {
-  text-align: center;
-  color: #0F4C81;
-  font-size: 32px;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.sub {
-  text-align: center;
-  opacity: 0.75;
-  margin-bottom: 40px;
-}
-
-/* GRID */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 22px;
-  max-width: 1100px;
-  margin: auto;
-}
-
-/* CARD */
-.card {
-  background: white;
-  padding: 26px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
-  transition: 0.3s ease;
-  transform: translateY(0);
-  opacity: 1; /* FIXED: prevents invisible cards */
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 35px rgba(0,0,0,0.12);
-}
-
-/* ICONS */
-.card i {
-  font-size: 26px;
-  color: #0F4C81;
-  margin-bottom: 10px;
-}
-
-/* TEXT */
-.center {
-  text-align: center;
-  max-width: 750px;
-  margin: auto;
-  font-size: 16px;
-  opacity: 0.85;
-}
-
-/* =========================
-   MODAL (CRITICAL FIX)
-========================= */
+/* ================= CV MODAL ================= */
 
 .modal {
   display: none;
@@ -160,66 +7,33 @@ h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.6);
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 2000;
 }
 
-.modal-box {
+.modal-content {
   background: white;
-  padding: 25px;
+  padding: 30px;
   width: 90%;
   max-width: 420px;
-  border-radius: 14px;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.modal-box input,
-.modal-box textarea {
+.modal-content input,
+.modal-content textarea {
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-}
-
-.modal-box input:focus,
-.modal-box textarea:focus {
-  border-color: #0F4C81;
-  box-shadow: 0 0 0 2px rgba(15,76,129,0.1);
+  border-radius: 6px;
+  font-family: inherit;
 }
 
 .close {
   text-align: right;
   font-size: 22px;
   cursor: pointer;
-}
-
-/* WHATSAPP */
-.whatsapp {
-  position: fixed;
-  bottom: 22px;
-  right: 22px;
-  background: #25D366;
-  color: white;
-  padding: 16px;
-  border-radius: 50%;
-  font-size: 22px;
-  text-decoration: none;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .nav {
-    padding: 15px 20px;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
 }
