@@ -1,217 +1,225 @@
 /* =========================
    AXIS HR SOLUTIONS
-   ELITE CONSULTING UI (McKinsey / BCG STYLE)
+   PREMIUM CONSULTING UI (McKinsey-style inspired)
 ========================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-:root {
-  --navy: #0b1f3a;
-  --text: #111827;
-  --muted: #6b7280;
-  --bg: #ffffff;
-  --soft: #f6f8fb;
-  --border: #e5e7eb;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
 body {
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text);
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: #ffffff;
+  color: #111827;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* =========================
-   NAV (MINIMAL CONSULTING)
-========================= */
-
+/* NAV (clean executive style) */
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 22px 70px;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eef2f7;
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: 1px solid var(--border);
 }
 
-.logo {
-  font-size: 16px;
+.nav .logo {
   font-weight: 700;
-  color: var(--navy);
+  font-size: 16px;
   letter-spacing: 0.5px;
+  color: #0b1f3a;
 }
 
 .nav nav a {
   margin-left: 22px;
   text-decoration: none;
-  color: var(--muted);
+  color: #374151;
   font-size: 14px;
   font-weight: 500;
   transition: 0.2s ease;
 }
 
 .nav nav a:hover {
-  color: var(--navy);
+  color: #0b1f3a;
 }
 
-/* =========================
-   HERO (CONSULTING STYLE)
-========================= */
-
+/* HERO (consulting-style minimal authority) */
 .hero {
-  background: var(--navy);
-  color: white;
+  padding: 130px 20px 110px;
   text-align: center;
-  padding: 150px 20px 120px;
+  background: #0b1f3a;
+  color: white;
 }
 
 .hero h1 {
   font-size: 46px;
   font-weight: 700;
+  letter-spacing: -0.8px;
   max-width: 900px;
   margin: auto;
-  letter-spacing: -0.8px;
 }
 
 .hero p {
-  margin-top: 16px;
+  margin-top: 14px;
   font-size: 16px;
   opacity: 0.8;
 }
 
-/* BUTTON */
+/* BUTTON (subtle executive CTA) */
 .btn {
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 22px;
   padding: 12px 26px;
-  background: white;
-  color: var(--navy);
+  background: #ffffff;
+  color: #0b1f3a;
   border-radius: 6px;
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
-  border: 1px solid var(--border);
-  transition: 0.25s ease;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
 }
 
-/* =========================
-   SECTIONS (STRUCTURED SPACING)
-========================= */
-
+/* SECTIONS (editorial spacing) */
 .section {
-  padding: 110px 20px;
+  padding: 100px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
 .section.alt {
-  background: var(--soft);
+  background: #f9fafb;
   max-width: 100%;
 }
 
+/* HEADINGS (consulting tone) */
 h2 {
   text-align: center;
   font-size: 34px;
   font-weight: 700;
-  color: var(--navy);
+  color: #0b1f3a;
   margin-bottom: 10px;
 }
 
 .sub {
   text-align: center;
+  color: #6b7280;
   font-size: 15px;
-  color: var(--muted);
   margin-bottom: 50px;
 }
 
-/* =========================
-   GRID
-========================= */
-
+/* GRID (clean spacing) */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
 }
 
-/* =========================
-   CARDS (MINIMAL CONSULTING STYLE)
-========================= */
-
+/* CARD (minimal executive cards) */
 .card {
   background: white;
-  border: 1px solid var(--border);
-  border-radius: 8px;
   padding: 28px;
+  border: 1px solid #eef2f7;
+  border-radius: 10px;
   text-align: left;
-  transition: all 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .card:hover {
+  border-color: #dbe5f1;
   transform: translateY(-4px);
-  border-color: #d1d5db;
 }
 
+/* ICONS (subtle professional tone) */
 .card i {
   font-size: 20px;
-  color: var(--navy);
+  color: #0b1f3a;
   margin-bottom: 10px;
 }
 
+/* TEXT */
 .card h3 {
   font-size: 16px;
   margin-bottom: 8px;
+  color: #111827;
 }
 
 .card p {
   font-size: 14px;
-  color: var(--muted);
+  color: #6b7280;
 }
 
-/* =========================
-   CENTER TEXT
-========================= */
-
+/* CENTER TEXT */
 .center {
   text-align: center;
   max-width: 750px;
   margin: auto;
-  color: var(--muted);
+  color: #4b5563;
+  font-size: 15px;
 }
 
-/* =========================
-   WHATSAPP
-========================= */
+/* MODAL (clean corporate overlay) */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(17,24,39,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
+.modal-box {
+  background: white;
+  padding: 26px;
+  width: 92%;
+  max-width: 420px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-box input,
+.modal-box textarea {
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus {
+  outline: none;
+  border-color: #0b1f3a;
+}
+
+.close {
+  text-align: right;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+/* WHATSAPP (minimal professional) */
 .whatsapp {
   position: fixed;
   bottom: 22px;
   right: 22px;
-  background: var(--navy);
+  background: #0b1f3a;
   color: white;
   padding: 14px;
   border-radius: 50%;
   font-size: 18px;
   text-decoration: none;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  transition: 0.2s ease;
-}
-
-.whatsapp:hover {
-  transform: scale(1.08);
 }
