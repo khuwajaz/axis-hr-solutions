@@ -33,7 +33,9 @@
   <div class="container">
     <h1>Professional HR & Administrative Solutions</h1>
     <p>Recruitment • Payroll • Outsourcing • HR Consultancy</p>
-    <a href="#services" class="btn">Explore Services</a>
+
+    <!-- CV BUTTON -->
+    <button class="btn" onclick="openCV()">Apply / Submit CV</button>
   </div>
 </section>
 
@@ -83,7 +85,7 @@
     <div class="card">
       <i class="fas fa-file-lines"></i>
       <h3>CV & Career Services</h3>
-      <p>CV writing and career guidance.</p>
+      <p>Professional CV submission system.</p>
     </div>
 
     <div class="card">
@@ -146,6 +148,65 @@
 <a class="whatsapp" href="https://wa.me/923119900744" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
+
+<!-- CV POPUP -->
+<div id="cvModal" class="modal">
+  <div class="modal-box">
+
+    <span class="close" onclick="closeCV()">×</span>
+
+    <h2>Apply for CV Submission</h2>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="phone" placeholder="Phone">
+    <textarea id="message" placeholder="Experience / Message"></textarea>
+
+    <button class="btn" onclick="sendEmail()">Send via Email</button>
+
+  </div>
+</div>
+
+<script>
+function openCV() {
+  document.getElementById("cvModal").style.display = "flex";
+}
+
+function closeCV() {
+  document.getElementById("cvModal").style.display = "none";
+}
+
+window.onclick = function(e) {
+  const modal = document.getElementById("cvModal");
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+function sendEmail() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const message = document.getElementById("message").value;
+
+  const subject = "CV Submission - Axis HR Solutions";
+
+  const body =
+`New CV Submission:
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+
+Message:
+${message}
+
+(Please attach CV before sending)`;
+
+  window.location.href =
+    `mailto:info@axishrsolutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+</script>
 
 </body>
 </html>
