@@ -1,70 +1,64 @@
-/* PREMIUM CORPORATE HR DESIGN */
+/* =========================
+   AXIS HR SOLUTIONS - SAFE PREMIUM FIX
+   (COMPATIBLE WITH YOUR HTML)
+========================= */
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', Segoe UI, sans-serif;
   background: #f6f8fc;
   color: #1f2a37;
+  line-height: 1.6;
 }
 
-/* NAV */
-.navbar {
+/* ================= NAV ================= */
+
+nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 18px 50px;
   background: white;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
   position: sticky;
   top: 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   z-index: 1000;
 }
 
-.navbar ul {
+nav ul {
   display: flex;
   gap: 20px;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.navbar a {
+nav a {
   text-decoration: none;
-  color: #1f4b99;
-  font-weight: 500;
+  color: #0f4c81;
+  font-weight: 600;
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 18px;
-}
+/* ================= HERO ================= */
 
-.logo span {
-  color: #1f4b99;
-}
-
-/* HERO */
 .hero {
-  height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 100px 20px;
   text-align: center;
   background: linear-gradient(135deg, #0f4c81, #1f6feb);
   color: white;
-  animation: fadeIn 1s ease-in;
 }
 
-.hero-content h1 {
+.hero h1 {
   font-size: 42px;
   margin-bottom: 10px;
 }
 
-.hero-content p {
+.hero p {
   opacity: 0.9;
 }
 
-/* BUTTON */
 .btn {
   display: inline-block;
-  margin-top: 15px;
   padding: 12px 22px;
   background: white;
   color: #0f4c81;
@@ -78,65 +72,65 @@ body {
   transform: translateY(-2px);
 }
 
-/* SECTIONS */
-.section {
-  padding: 80px 20px;
+/* ================= CONTAINER ================= */
+
+.container {
   max-width: 1100px;
   margin: auto;
+  padding: 60px 20px;
+}
+
+/* ================= HEADINGS ================= */
+
+h2 {
   text-align: center;
+  color: #0f4c81;
+  margin-bottom: 10px;
 }
 
-.dark {
-  background: #0f172a;
-  color: white;
-}
-
-.subtext {
+.section-subtitle {
+  text-align: center;
   opacity: 0.7;
   margin-bottom: 40px;
 }
 
-/* GRID */
-.grid {
+/* ================= SERVICES GRID ================= */
+
+.services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-/* CARD */
-.card {
+/* ================= CARDS ================= */
+
+.service-card {
   background: white;
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   transition: 0.3s;
-  animation: fadeUp 0.8s ease-in;
+  text-align: center;
 }
 
-.card:hover {
-  transform: translateY(-8px);
+.service-card:hover {
+  transform: translateY(-6px);
 }
 
-.card i {
+.service-card i {
   font-size: 26px;
-  color: #1f4b99;
+  color: #0f4c81;
   margin-bottom: 10px;
 }
 
-.dark .card {
-  background: #1e293b;
-  color: white;
+/* ================= BUTTON SAFE ================= */
+
+button, .btn {
+  cursor: pointer;
 }
 
-/* CONTACT */
-.contact-box {
-  background: rgba(255,255,255,0.1);
-  padding: 20px;
-  border-radius: 10px;
-  display: inline-block;
-}
+/* ================= WHATSAPP ================= */
 
-/* WHATSAPP */
 .whatsapp {
   position: fixed;
   bottom: 20px;
@@ -147,15 +141,24 @@ body {
   padding: 14px;
   border-radius: 50%;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* ================= ANIMATION ================= */
+
+.service-card {
+  animation: fadeUp 0.6s ease-in;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
