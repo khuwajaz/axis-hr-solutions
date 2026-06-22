@@ -1,26 +1,40 @@
 /* =========================
    AXIS HR SOLUTIONS
-   PREMIUM CONSULTING UI (McKinsey-style inspired)
+   FINAL PREMIUM CONSULTING POLISH (McKinsey-inspired)
 ========================= */
 
+:root {
+  --navy: #0b1f3a;
+  --text: #111827;
+  --muted: #6b7280;
+  --bg: #ffffff;
+  --soft: #f5f7fb;
+  --border: #e5e7eb;
+  --accent: #0b1f3a;
+}
+
+/* GLOBAL */
 body {
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
-  background: #ffffff;
-  color: #111827;
+  background: var(--bg);
+  color: var(--text);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
-/* NAV (clean executive style) */
+/* =========================
+   NAVIGATION
+========================= */
+
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 22px 70px;
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid #eef2f7;
+  border-bottom: 1px solid var(--border);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -30,149 +44,178 @@ body {
   font-weight: 700;
   font-size: 16px;
   letter-spacing: 0.5px;
-  color: #0b1f3a;
+  color: var(--navy);
 }
 
 .nav nav a {
   margin-left: 22px;
   text-decoration: none;
-  color: #374151;
   font-size: 14px;
   font-weight: 500;
+  color: var(--muted);
   transition: 0.2s ease;
 }
 
 .nav nav a:hover {
-  color: #0b1f3a;
+  color: var(--navy);
 }
 
-/* HERO (consulting-style minimal authority) */
+/* =========================
+   HERO (CONSULTING STYLE)
+========================= */
+
 .hero {
-  padding: 130px 20px 110px;
-  text-align: center;
-  background: #0b1f3a;
+  background: var(--navy);
   color: white;
+  padding: 140px 20px 110px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 900px;
+  margin: auto;
 }
 
 .hero h1 {
   font-size: 46px;
   font-weight: 700;
   letter-spacing: -0.8px;
-  max-width: 900px;
-  margin: auto;
+  margin: 0;
 }
 
 .hero p {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 16px;
   opacity: 0.8;
 }
 
-/* BUTTON (subtle executive CTA) */
+/* HERO ACTIONS */
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   BUTTONS (EXECUTIVE STYLE)
+========================= */
+
 .btn {
-  display: inline-block;
-  margin-top: 22px;
   padding: 12px 26px;
-  background: #ffffff;
-  color: #0b1f3a;
   border-radius: 6px;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--navy);
   font-weight: 600;
   font-size: 14px;
-  text-decoration: none;
-  border: 1px solid #e5e7eb;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.08);
 }
 
-/* SECTIONS (editorial spacing) */
+/* =========================
+   SECTIONS (EDITORIAL SPACING)
+========================= */
+
 .section {
-  padding: 100px 20px;
+  padding: 110px 20px;
   max-width: 1100px;
   margin: auto;
 }
 
 .section.alt {
-  background: #f9fafb;
+  background: var(--soft);
   max-width: 100%;
 }
 
-/* HEADINGS (consulting tone) */
 h2 {
   text-align: center;
   font-size: 34px;
   font-weight: 700;
-  color: #0b1f3a;
+  color: var(--navy);
   margin-bottom: 10px;
 }
 
 .sub {
   text-align: center;
-  color: #6b7280;
   font-size: 15px;
+  color: var(--muted);
   margin-bottom: 50px;
 }
 
-/* GRID (clean spacing) */
+/* =========================
+   GRID SYSTEM
+========================= */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 28px;
 }
 
-/* CARD (minimal executive cards) */
+/* =========================
+   CARDS (CONSULTING STYLE)
+========================= */
+
 .card {
   background: white;
-  padding: 28px;
-  border: 1px solid #eef2f7;
+  border: 1px solid var(--border);
   border-radius: 10px;
+  padding: 28px;
   text-align: left;
   transition: all 0.25s ease;
 }
 
 .card:hover {
-  border-color: #dbe5f1;
   transform: translateY(-4px);
+  border-color: #d1d5db;
 }
 
-/* ICONS (subtle professional tone) */
 .card i {
   font-size: 20px;
-  color: #0b1f3a;
+  color: var(--navy);
   margin-bottom: 10px;
 }
 
-/* TEXT */
 .card h3 {
   font-size: 16px;
   margin-bottom: 8px;
-  color: #111827;
+  color: var(--text);
 }
 
 .card p {
   font-size: 14px;
-  color: #6b7280;
+  color: var(--muted);
 }
 
-/* CENTER TEXT */
+/* =========================
+   TEXT BLOCKS
+========================= */
+
 .center {
   text-align: center;
   max-width: 750px;
   margin: auto;
-  color: #4b5563;
+  color: var(--muted);
   font-size: 15px;
 }
 
-/* MODAL (clean corporate overlay) */
+/* =========================
+   MODAL (CLEAN CORPORATE UI)
+========================= */
+
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(17,24,39,0.6);
+  background: rgba(11, 31, 58, 0.65);
   justify-content: center;
   align-items: center;
   z-index: 9999;
@@ -187,12 +230,19 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal-box h3 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--navy);
 }
 
 .modal-box input,
 .modal-box textarea {
   padding: 10px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 14px;
 }
@@ -200,26 +250,34 @@ h2 {
 .modal-box input:focus,
 .modal-box textarea:focus {
   outline: none;
-  border-color: #0b1f3a;
+  border-color: var(--navy);
 }
 
 .close {
   text-align: right;
   font-size: 20px;
   cursor: pointer;
-  color: #6b7280;
+  color: var(--muted);
 }
 
-/* WHATSAPP (minimal professional) */
+/* =========================
+   WHATSAPP BUTTON
+========================= */
+
 .whatsapp {
   position: fixed;
   bottom: 22px;
   right: 22px;
-  background: #0b1f3a;
+  background: var(--navy);
   color: white;
   padding: 14px;
   border-radius: 50%;
   font-size: 18px;
   text-decoration: none;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.2s ease;
+}
+
+.whatsapp:hover {
+  transform: scale(1.05);
 }
