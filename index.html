@@ -3,22 +3,222 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Axis HR Admin Dashboard Pro</title>
 
-  <title>Axis HR Solutions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fb;
+    }
 
-  <!-- FIXED PATH FOR GITHUB PAGES -->
-  <link rel="stylesheet" href="./style.css">
+    header {
+      background: #0F4C81;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .card h2 {
+      margin: 0;
+      color: #0F4C81;
+    }
+
+    .controls {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button, select, input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background: #0F4C81;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #09345a;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #0F4C81;
+      color: white;
+    }
+
+    .section-title {
+      margin-top: 30px;
+      color: #0F4C81;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <h2>Axis HR Solutions</h2>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why-choose">Why Us
+  <header>
+    <h1>Axis HR Admin Dashboard Pro</h1>
+  </header>
+
+  <div class="container">
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="card">
+        <h2 id="totalContacts">0</h2>
+        <p>Total Contacts</p>
+      </div>
+
+      <div class="card">
+        <h2 id="totalCVs">0</h2>
+        <p>Total CVs</p>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls">
+      <button onclick="loadData()">🔄 Refresh</button>
+
+      <select id="filter" onchange="renderTable()">
+        <option value="all">All</option>
+        <option value="contacts">Contacts</option>
+        <option value="cvs">CVs</option>
+      </select>
+
+      <input type="text" id="search" placeholder="Search name/email..." onkeyup="renderTable()">
+
+      <button onclick="exportCSV()">⬇ Export CSV</button>
+    </div>
+
+    <h2 class="section-title">📋 Records</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Message</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+
+  </div>
+
+  <script>
+    const API_URL = "https://script.google.com/macros/s/AKfycby-AF7cfYvmIh80yqxQao96WRwhs1NmL6IrxyIFGeRqAkJ8QX99gZCbB-qXeRXPlScaDQ/exec";
+
+    let allData = [];
+
+    async function loadData() {
+      const res = await fetch(API_URL);
+      const data = await res.json();
+
+      allData = [];
+
+      (data.contacts || []).forEach(c => allData.push({ ...c, type: "Contact" }));
+      (data.cvs || []).forEach(c => allData.push({ ...c, type: "CV" }));
+
+      document.getElementById("totalContacts").innerText = data.contacts.length;
+      document.getElementById("totalCVs").innerText = data.cvs.length;
+
+      renderTable();
+    }
+
+    function renderTable() {
+      const filter = document.getElementById("filter").value;
+      const search = document.getElementById("search").value.toLowerCase();
+
+      let filtered = allData;
+
+      if (filter !== "all") {
+        filtered = filtered.filter(x => x.type.toLowerCase() === filter.slice(0, -1));
+      }
+
+      if (search) {
+        filtered = filtered.filter(x =>
+          (x.name || "").toLowerCase().includes(search) ||
+          (x.email || "").toLowerCase().includes(search)
+        );
+      }
+
+      const tbody = document.getElementById("tableBody");
+      tbody.innerHTML = "";
+
+      filtered.forEach(row => {
+        tbody.innerHTML += `
+          <tr>
+            <td>${row.date || ""}</td>
+            <td>${row.name || ""}</td>
+            <td>${row.email || ""}</td>
+            <td>${row.phone || ""}</td>
+            <td>${row.message || ""}</td>
+            <td>${row.type}</td>
+          </tr>
+        `;
+      });
+    }
+
+    function exportCSV() {
+      let csv = "Date,Name,Email,Phone,Message,Type\n";
+
+      allData.forEach(r => {
+        csv += `${r.date},${r.name},${r.email},${r.phone},${r.message},${r.type}\n`;
+      });
+
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "axis_hr_data.csv";
+      a.click();
+    }
+  </script>
+
+</body>
+</html>
