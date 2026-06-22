@@ -7,15 +7,14 @@
 
   <title>Axis HR Solutions</title>
 
-  <meta name="description" content="Axis HR Solutions provides HR outsourcing, recruitment, payroll and administrative services in Pakistan.">
+  <meta name="description" content="HR outsourcing, recruitment, payroll and consultancy services in Pakistan.">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
 
-<!-- NAV -->
 <header class="nav">
   <div class="logo">Axis HR Solutions</div>
   <nav>
@@ -27,14 +26,11 @@
   </nav>
 </header>
 
-<!-- HERO -->
 <section id="home" class="hero">
   <h1>Professional HR & Administrative Solutions</h1>
   <p>Recruitment • Payroll • Outsourcing • HR Consultancy</p>
-  <a href="#services" class="btn">Explore Services</a>
 </section>
 
-<!-- SERVICES -->
 <section id="services" class="section">
   <h2>Our Services</h2>
 
@@ -43,145 +39,57 @@
     <div class="card">
       <i class="fas fa-users"></i>
       <h3>Human Resource Management</h3>
-      <p>End-to-end HR lifecycle support.</p>
     </div>
 
     <div class="card">
       <i class="fas fa-user-plus"></i>
-      <h3>Recruitment & Staffing</h3>
-      <p>Permanent & executive hiring solutions.</p>
+      <h3>Recruitment</h3>
     </div>
 
     <div class="card">
       <i class="fas fa-money-check-dollar"></i>
-      <h3>Payroll Management</h3>
-      <p>Salary processing & compliance.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-briefcase"></i>
-      <h3>Administrative Support</h3>
-      <p>Office operations & documentation.</p>
+      <h3>Payroll</h3>
     </div>
 
     <div class="card">
       <i class="fas fa-building"></i>
       <h3>HR Outsourcing</h3>
-      <p>Complete HR department outsourcing.</p>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-graduation-cap"></i>
-      <h3>Training & Development</h3>
-      <p>Professional skill development programs.</p>
-    </div>
-
-    <!-- CV CARD -->
-    <div class="card highlight">
-      <i class="fas fa-file-lines"></i>
-      <h3>CV & Career Services</h3>
-      <p>Apply instantly via HR system</p>
-
-      <button class="btn" onclick="openModal()">Apply Now</button>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-chart-line"></i>
-      <h3>Business HR Consultancy</h3>
-      <p>HR strategy & organizational development.</p>
     </div>
 
   </div>
 </section>
 
-<!-- WHY -->
 <section id="why" class="section alt">
   <h2>Why Choose Us</h2>
 
   <div class="grid">
-    <div class="card"><h3>Experience</h3><p>HR expertise.</p></div>
-    <div class="card"><h3>Fast Delivery</h3><p>Quick solutions.</p></div>
-    <div class="card"><h3>Trusted Network</h3><p>Strong talent pool.</p></div>
-    <div class="card"><h3>Compliance</h3><p>Proper HR systems.</p></div>
+    <div class="card"><h3>Experience</h3></div>
+    <div class="card"><h3>Speed</h3></div>
+    <div class="card"><h3>Trust</h3></div>
+    <div class="card"><h3>Compliance</h3></div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="section">
   <h2>About Us</h2>
   <p class="center">
-    Axis HR Solutions is a professional HR consultancy providing recruitment, payroll, outsourcing and administrative services.
+    Axis HR Solutions provides professional HR services across Pakistan.
   </p>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="section">
   <h2>Contact</h2>
-
   <p class="center">
     📞 +92 311 9900744 <br>
     📧 info@axishrsolutions.com
   </p>
 </section>
 
-<!-- WHATSAPP -->
 <a class="whatsapp" href="https://wa.me/923119900744" target="_blank">
   <i class="fab fa-whatsapp"></i>
 </a>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-box">
-
-    <span class="close" onclick="closeModal()">&times;</span>
-
-    <h2>Apply for CV Submission</h2>
-
-    <input type="text" id="name" placeholder="Full Name">
-    <input type="email" id="email" placeholder="Email">
-    <input type="text" id="phone" placeholder="Phone">
-    <textarea id="message" placeholder="Experience / Message"></textarea>
-
-    <button class="btn" onclick="sendMail()">Continue to Email</button>
-
-  </div>
-</div>
-
-<script>
-function openModal() {
-  document.getElementById("modal").style.display = "flex";
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-
-function sendMail() {
-
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
-  const phone = document.getElementById("phone").value;
-  const message = document.getElementById("message").value;
-
-  const subject = "CV Submission - Axis HR Solutions";
-
-  const body =
-`CV APPLICATION
-
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-
-Message:
-${message}
-
-Please attach your CV before sending.`;
-
-  const mailto = `mailto:info@axishrsolutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-  window.location.href = mailto;
-}
-</script>
+<script src="js/script.js"></script>
 
 </body>
 </html>
