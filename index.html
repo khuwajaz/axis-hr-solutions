@@ -30,12 +30,17 @@
 
 <!-- HERO -->
 <section id="home" class="hero">
-  <div class="container">
+  <div class="hero-content">
+
     <h1>Professional HR & Administrative Solutions</h1>
+
     <p>Recruitment • Payroll • Outsourcing • HR Consultancy</p>
 
-    <!-- CV BUTTON -->
-    <button class="btn" onclick="openCV()">Apply / Submit CV</button>
+    <div class="hero-actions">
+      <a href="#services" class="btn">Explore Services</a>
+      <button class="btn" onclick="openCV()">Apply / Submit CV</button>
+    </div>
+
   </div>
 </section>
 
@@ -155,7 +160,7 @@
 
     <span class="close" onclick="closeCV()">×</span>
 
-    <h2>Apply for CV Submission</h2>
+    <h3>Apply for CV Submission</h3>
 
     <input type="text" id="name" placeholder="Full Name">
     <input type="email" id="email" placeholder="Email">
@@ -201,7 +206,7 @@ Phone: ${phone}
 Message:
 ${message}
 
-(Please attach CV before sending)`;
+Please attach your CV manually.`;
 
   window.location.href =
     `mailto:info@axishrsolutions.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
